@@ -1,0 +1,57 @@
+{
+  "policy": {
+    "mode": "rg_stratified",
+    "window": 6.0,
+    "n_bins": 3,
+    "per_bin": 2
+  },
+  "rmsd_cutoff_angstrom": 0.5,
+  "ensemble_order_policy": "preserve source order and original 1-based conformer numbers",
+  "adjacent_energy_inversions": 0,
+  "seed_sha256": "0679ed8074cccf279a8de724fac59f23c7faa97d460961a786997c0c74b46d64",
+  "ensemble_sha256": "713a3d4a55be02aeca0269cee2e39c1da27ff6821163d8099b9aa70640573d3f",
+  "candidates": [
+    {
+      "candidate": "dft_seed",
+      "crest_relative_energy_kcal_mol": null,
+      "heavy_atom_rg_angstrom": 3.4499303040390004,
+      "input_sha256": "245ed05e34d15c49bb0892169fc16b7be759b5eaa8d3347144f3a99ef67732c7"
+    },
+    {
+      "candidate": "conf1",
+      "crest_relative_energy_kcal_mol": 0.0,
+      "heavy_atom_rg_angstrom": 3.053682467470611,
+      "input_sha256": "822300d9ed6383bea6dce82cffb164b8e311d9fdde818d4b842b5182f735534d"
+    },
+    {
+      "candidate": "conf6",
+      "crest_relative_energy_kcal_mol": 0.4486190732016899,
+      "heavy_atom_rg_angstrom": 3.274894549490733,
+      "input_sha256": "f1b0a0d6c360a84a66c8796fc498f0509bcca7991a7082d6f738fe59a0344d70"
+    },
+    {
+      "candidate": "conf8",
+      "crest_relative_energy_kcal_mol": 0.47152316900067043,
+      "heavy_atom_rg_angstrom": 3.0236872485345594,
+      "input_sha256": "e1af85a668e9e1c078238a226dfe15537c2827db309dfae0013f1d40f4478184"
+    },
+    {
+      "candidate": "conf58",
+      "crest_relative_energy_kcal_mol": 2.2103330963454626,
+      "heavy_atom_rg_angstrom": 3.2564871080667146,
+      "input_sha256": "13b77589fb4bbe21303f8475fdc249ba490d527f68c0510e8e135334ebb1db3e"
+    },
+    {
+      "candidate": "conf87",
+      "crest_relative_energy_kcal_mol": 2.9649885400437426,
+      "heavy_atom_rg_angstrom": 3.734842671159785,
+      "input_sha256": "c8616b9ecb4ac531267fba33a2a9ea279e247ac50af5b17b0ff9196d02df1d17"
+    },
+    {
+      "candidate": "conf178",
+      "crest_relative_energy_kcal_mol": 4.35083693841799,
+      "heavy_atom_rg_angstrom": 3.6082843939976335,
+      "input_sha256": "5f3ae917833b94c24f21b8a024eca1c1c8fa108f23c20de93a3f537d44fd43f4"
+    }
+  ]
+}

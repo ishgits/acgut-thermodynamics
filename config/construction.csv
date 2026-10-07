@@ -1,0 +1,21 @@
+species_id,base_sdf,donor_sdf,base_attachment_atom,donor_carbon,donor_oxygen,seed,expected_formula,origin
+barbituric_acid_clink_ribose,data/source/structures/barbituric_acid.sdf,data/source/structures/ribose.sdf,5,8,3,61453,C9H12N2O7,audited manual linkage
+barbituric_acid_clink_ribose_phosphate,data/source/structures/barbituric_acid.sdf,data/source/structures/ribo_phosphate.sdf,5,12,4,61453,C9H13N2O10P,audited manual linkage
+melamine_ribose,data/source/structures/melamine.sdf,data/source/structures/ribose.sdf,3,8,3,61453,C8H14N6O4,audited manual linkage
+melamine_ribose_phosphate,data/source/structures/melamine.sdf,data/source/structures/ribo_phosphate.sdf,3,12,4,61453,C8H15N6O7P,audited manual linkage
+tap_c5link_ribose,data/source/structures/tap_c5link.sdf,data/source/structures/ribose.sdf,7,8,3,61453,C9H15N5O4,audited manual linkage
+tap_c5link_ribose_phosphate,data/source/structures/tap_c5link.sdf,data/source/structures/ribo_phosphate.sdf,7,12,4,61453,C9H16N5O7P,audited manual linkage
+cyanuric_acid_nlink_ribose,data/source/structures/cyanuric_acid_nlink.sdf,data/source/structures/ribose.sdf,3,8,3,61453,C8H11N3O7,audited manual linkage
+cyanuric_acid_nlink_ribose_phosphate,data/source/structures/cyanuric_acid_nlink.sdf,data/source/structures/ribo_phosphate.sdf,3,12,4,61453,C8H12N3O10P,audited manual linkage
+barbituric_acid_nlink_ribose,data/source/structures/barbituric_acid.sdf,data/source/structures/ribose.sdf,3,8,3,61453,C9H12N2O7,neutral missing-product condensation
+imidazole_ribose,data/source/structures/imidazole.sdf,data/source/structures/ribose.sdf,0,8,3,61453,C8H12N2O4,neutral missing-product condensation
+imidazole_2_carboxylic_acid_ribose,data/source/structures/imidazole_2_carboxylic_acid.sdf,data/source/structures/ribose.sdf,2,8,3,61453,C9H12N2O6,neutral missing-product condensation
+1_methyluracil_ribose,data/source/structures/1_methyluracil.sdf,data/source/structures/ribose.sdf,3,8,3,61453,C10H14N2O6,neutral missing-product condensation
+barbituric_acid_nlink_ribose_phosphate,data/source/structures/barbituric_acid.sdf,data/source/structures/ribo_phosphate.sdf,3,12,4,61453,C9H13N2O10P,neutral missing-product condensation
+2_6_diaminopurine_ribose_phosphate,data/source/structures/2_6_diaminopurine.sdf,data/source/structures/ribo_phosphate.sdf,0,12,4,61453,C10H15N6O7P,neutral missing-product condensation
+purine_ribose_phosphate,data/source/structures/purine.sdf,data/source/structures/ribo_phosphate.sdf,0,12,4,61453,C10H13N4O7P,neutral missing-product condensation
+isocytosine_ribose_phosphate,data/source/structures/isocytosine.sdf,data/source/structures/ribo_phosphate.sdf,1,12,4,61453,C9H14N3O8P,neutral missing-product condensation
+imidazole_ribose_phosphate,data/source/structures/imidazole.sdf,data/source/structures/ribo_phosphate.sdf,0,12,4,61453,C8H13N2O7P,neutral missing-product condensation
+imidazole_2_carboxylic_acid_ribose_phosphate,data/source/structures/imidazole_2_carboxylic_acid.sdf,data/source/structures/ribo_phosphate.sdf,2,12,4,61453,C9H13N2O9P,neutral missing-product condensation
+6_methyluracil_ribose_phosphate,data/source/structures/6_methyluracil.sdf,data/source/structures/ribo_phosphate.sdf,2,12,4,61453,C10H15N2O9P,neutral missing-product condensation
+1_methyluracil_ribose_phosphate,data/source/structures/1_methyluracil.sdf,data/source/structures/ribo_phosphate.sdf,3,12,4,61453,C10H15N2O9P,neutral missing-product condensation

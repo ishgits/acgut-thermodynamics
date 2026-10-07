@@ -1,0 +1,22 @@
+display_order,reaction_family_id,display_name,base_species_id,nucleoside_species_id,nucleotide_species_id,canonical,notes
+1,adenine,Adenine,adenine,adenine_ribose,adenine_ribose_phosphate,True,
+2,cytosine,Cytosine,cytosine,cytosine_ribose,cytosine_ribose_phosphate,True,
+3,guanine,Guanine,guanine,guanine_ribose,guanine_ribose_phosphate,True,
+4,thymine,Thymine,thymine,thymine_ribose,thymine_ribose_phosphate,True,
+5,uracil,Uracil,uracil,uracil_ribose,uracil_ribose_phosphate,True,
+6,xanthine,Xanthine,xanthine,xanthine_ribose,xanthine_ribose_phosphate,False,
+7,hypoxanthine,Hypoxanthine,hypoxanthine,hypoxanthine_ribose,hypoxanthine_ribose_phosphate,False,
+8,2_6_diaminopurine,"2,6-Diaminopurine",2_6_diaminopurine,2_6_diaminopurine_ribose,2_6_diaminopurine_ribose_phosphate,False,
+9,purine,Purine,purine,purine_ribose,purine_ribose_phosphate,False,
+10,barbituric_acid_clink,Barbituric acid (C-linked),barbituric_acid,barbituric_acid_clink_ribose,barbituric_acid_clink_ribose_phosphate,False,Shares the same physical barbituric-acid base species with the N-linked family.
+11,barbituric_acid_nlink,Barbituric acid (N-linked),barbituric_acid,barbituric_acid_nlink_ribose,barbituric_acid_nlink_ribose_phosphate,False,Shares the same physical barbituric-acid base species with the C-linked family.
+12,tap_c5link,"2,4,6-TAP (C5-linked)",tap_c5link,tap_c5link_ribose,tap_c5link_ribose_phosphate,False,
+13,cyanuric_acid_nlink,Cyanuric acid (N-linked),cyanuric_acid_nlink,cyanuric_acid_nlink_ribose,cyanuric_acid_nlink_ribose_phosphate,False,
+14,melamine,Melamine,melamine,melamine_ribose,melamine_ribose_phosphate,False,
+15,isocytosine,Isocytosine,isocytosine,isocytosine_ribose,isocytosine_ribose_phosphate,False,
+16,6_methyluracil,6-Methyluracil,6_methyluracil,6_methyluracil_ribose,6_methyluracil_ribose_phosphate,False,
+17,1_methyluracil,1-Methyluracil,1_methyluracil,1_methyluracil_ribose,1_methyluracil_ribose_phosphate,False,
+18,dihydrouracil,Dihydrouracil,dihydrouracil,dihydrouracil_ribose,dihydrouracil_ribose_phosphate,False,
+19,imidazole,Imidazole,imidazole,imidazole_ribose,imidazole_ribose_phosphate,False,
+20,imidazole_2_carboxylic_acid,Imidazole-2-carboxylic acid,imidazole_2_carboxylic_acid,imidazole_2_carboxylic_acid_ribose,imidazole_2_carboxylic_acid_ribose_phosphate,False,
+21,5_amino_4_imidazolecarboxamide,5-Amino-4-imidazolecarboxamide,5_amino_4_imidazolecarboxamide,5_amino_4_imidazolecarboxamide_ribose,5_amino_4_imidazolecarboxamide_ribose_phosphate,False,

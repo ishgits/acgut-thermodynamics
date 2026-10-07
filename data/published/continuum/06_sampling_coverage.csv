@@ -1,0 +1,82 @@
+analysis_id,method_id,method_label,family_panel,reaction_family_id,family_display_name,base_candidate_count,nucleoside_candidate_count,nucleotide_candidate_count,ribose_candidate_count,phosphate_candidate_count,water_candidate_count,ribo_phosphate_candidate_count,required_species_count,complete_required_coverage
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,adenine,Adenine,1,5,6,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,cytosine,Cytosine,1,6,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,guanine,Guanine,1,5,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,thymine,Thymine,1,6,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,uracil,Uracil,1,6,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,xanthine,Xanthine,1,6,6,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,hypoxanthine,Hypoxanthine,1,5,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,2_6_diaminopurine,"2,6-Diaminopurine",1,4,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,purine,Purine,1,5,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,barbituric_acid_clink,Barbituric acid (C-linked),1,6,5,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,barbituric_acid_nlink,Barbituric acid (N-linked),1,6,3,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,tap_c5link,"2,4,6-TAP (C5-linked)",1,5,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,cyanuric_acid_nlink,Cyanuric acid (N-linked),1,4,3,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,melamine,Melamine,1,6,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,isocytosine,Isocytosine,1,6,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,6_methyluracil,6-Methyluracil,1,5,3,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,1_methyluracil,1-Methyluracil,1,6,3,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,dihydrouracil,Dihydrouracil,1,6,5,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,imidazole,Imidazole,1,6,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,imidazole_2_carboxylic_acid,Imidazole-2-carboxylic acid,2,6,7,5,1,1,6,7,True
+full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,5_amino_4_imidazolecarboxamide,5-Amino-4-imidazolecarboxamide,2,6,7,5,1,1,6,7,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,adenine,Adenine,1,0,6,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,cytosine,Cytosine,1,0,7,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,guanine,Guanine,1,0,7,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,thymine,Thymine,1,0,7,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,uracil,Uracil,1,0,7,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,xanthine,Xanthine,1,0,6,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,barbituric_acid_clink,Barbituric acid (C-linked),1,0,5,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,tap_c5link,"2,4,6-TAP (C5-linked)",1,0,7,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,melamine,Melamine,1,0,7,5,1,1,0,5,True
+method_sensitivity10_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,targeted_10,imidazole,Imidazole,1,0,7,5,1,1,0,5,True
+canonical_nucleoside5_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,canonical_5,adenine,Adenine,1,5,0,5,0,1,0,4,True
+canonical_nucleoside5_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,canonical_5,cytosine,Cytosine,1,6,0,5,0,1,0,4,True
+canonical_nucleoside5_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,canonical_5,guanine,Guanine,1,5,0,5,0,1,0,4,True
+canonical_nucleoside5_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,canonical_5,thymine,Thymine,1,6,0,5,0,1,0,4,True
+canonical_nucleoside5_1_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,canonical_5,uracil,Uracil,1,6,0,5,0,1,0,4,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,adenine,Adenine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,cytosine,Cytosine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,guanine,Guanine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,thymine,Thymine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,uracil,Uracil,1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,xanthine,Xanthine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,barbituric_acid_clink,Barbituric acid (C-linked),1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,tap_c5link,"2,4,6-TAP (C5-linked)",1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,melamine,Melamine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,targeted_10,imidazole,Imidazole,1,0,1,1,1,1,0,5,True
+canonical_nucleoside5_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,canonical_5,adenine,Adenine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,canonical_5,cytosine,Cytosine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,canonical_5,guanine,Guanine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,canonical_5,thymine,Thymine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_2_b3lyp_smd,2_b3lyp_smd,B3LYP / SMD,canonical_5,uracil,Uracil,1,1,0,1,0,1,0,4,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,adenine,Adenine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,cytosine,Cytosine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,guanine,Guanine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,thymine,Thymine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,uracil,Uracil,1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,xanthine,Xanthine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,barbituric_acid_clink,Barbituric acid (C-linked),1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,tap_c5link,"2,4,6-TAP (C5-linked)",1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,melamine,Melamine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,targeted_10,imidazole,Imidazole,1,0,1,1,1,1,0,5,True
+canonical_nucleoside5_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,canonical_5,adenine,Adenine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,canonical_5,cytosine,Cytosine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,canonical_5,guanine,Guanine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,canonical_5,thymine,Thymine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_3_wb97xd_pcm,3_wb97xd_pcm,wB97X-D / PCM,canonical_5,uracil,Uracil,1,1,0,1,0,1,0,4,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,adenine,Adenine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,cytosine,Cytosine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,guanine,Guanine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,thymine,Thymine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,uracil,Uracil,1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,xanthine,Xanthine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,barbituric_acid_clink,Barbituric acid (C-linked),1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,tap_c5link,"2,4,6-TAP (C5-linked)",1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,melamine,Melamine,1,0,1,1,1,1,0,5,True
+method_sensitivity10_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,targeted_10,imidazole,Imidazole,1,0,1,1,1,1,0,5,True
+canonical_nucleoside5_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,canonical_5,adenine,Adenine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,canonical_5,cytosine,Cytosine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,canonical_5,guanine,Guanine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,canonical_5,thymine,Thymine,1,1,0,1,0,1,0,4,True
+canonical_nucleoside5_4_wb97xd_smd,4_wb97xd_smd,wB97X-D / SMD,canonical_5,uracil,Uracil,1,1,0,1,0,1,0,4,True

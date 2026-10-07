@@ -1,0 +1,218 @@
+{
+  "source_xyz_sha256": "a63d8d39f22fe879523cf828d16dcb2bddf0bbe139f5c39bb4706e33e61bd6ca",
+  "placements": [
+    {
+      "placement": "splitA",
+      "input_sha256": "4626f107b2fac004bf50cb7aa0127fd70f6a1175577b2ca4e17171277b9defde",
+      "construction": {
+        "score": 0.907313802722723,
+        "donor_o": 6,
+        "donor_h": 33,
+        "acceptor": 10,
+        "phosphate_chi": 80,
+        "phosphate_water_psi": 0,
+        "base_direction_id": 5,
+        "base_water_psi": 15,
+        "p_to_water": {
+          "H_A_A": 1.7500000000000007,
+          "D_A_A": 2.758233960277078,
+          "D_H_A_deg": 180.0
+        },
+        "water_to_base": {
+          "H_A_A": 1.84,
+          "D_A_A": 2.8000000000000003,
+          "D_H_A_deg": 180.0
+        },
+        "metrics": {
+          "structural_parse": "PASS",
+          "natoms": 41,
+          "fragment_sizes": "3;3;35",
+          "intact_water_count": 2,
+          "phosphate_OH_count": 2,
+          "base_ring_atoms": "10;11;18;19;20;21",
+          "base_acceptor_atoms": "6;11",
+          "direct_fold": false,
+          "near_fold": false,
+          "fold_state": "open_water_competes_at_both_sites",
+          "direct_fold_contact_count": 0,
+          "phosphate_water_contact_count": 1,
+          "water_base_contact_count": 1,
+          "bridging_water_count": 0,
+          "bridging_water_ids": "",
+          "closest_phosphate_H_to_base_acceptor_A": 2.4438885993214674,
+          "closest_contact_angle_deg": 86.09872495920591,
+          "closest_contact_acceptor_atom": 6,
+          "closest_contact_acceptor_element": "O",
+          "P_to_base_ring_centroid_A": 5.296535922487203,
+          "P_to_nearest_base_ring_atom_A": 4.2447042089206874,
+          "solute_heavy_radius_gyration_A": 3.1173444201806113,
+          "direct_contacts": [],
+          "closest_base_contacts": [
+            {
+              "donor_O_atom": 7,
+              "donor_H_atom": 34,
+              "acceptor_atom": 6,
+              "acceptor_element": "O",
+              "H_A_A": 2.4438885993214674,
+              "D_A_A": 2.5795032230801724,
+              "D_H_A_deg": 86.09872495920591
+            },
+            {
+              "donor_O_atom": 8,
+              "donor_H_atom": 35,
+              "acceptor_atom": 6,
+              "acceptor_element": "O",
+              "H_A_A": 4.889139668547116,
+              "D_A_A": 4.824385587583252,
+              "D_H_A_deg": 80.48276537637241
+            }
+          ],
+          "phosphate_to_water_contacts": [
+            {
+              "water_id": 1,
+              "donor_O_atom": 7,
+              "donor_H_atom": 34,
+              "water_O_atom": 36,
+              "H_A_A": 1.7500000000000007,
+              "D_A_A": 2.758233960277078,
+              "D_H_A_deg": 180.0
+            }
+          ],
+          "water_to_base_contacts": [
+            {
+              "water_id": 2,
+              "water_O_atom": 39,
+              "water_H_atom": 40,
+              "acceptor_atom": 11,
+              "acceptor_element": "N",
+              "H_A_A": 1.84,
+              "D_A_A": 2.8000000000000003,
+              "D_H_A_deg": 180.0
+            }
+          ]
+        },
+        "closest_unintended": [
+          0.907313802722723,
+          2.758233960277078,
+          6,
+          35
+        ],
+        "water_O_O_A": 4.878449874288691,
+        "max_solute_heavy_displacement_A": 0.0,
+        "changed_solute_atoms": "34"
+      }
+    },
+    {
+      "placement": "splitB",
+      "input_sha256": "bb76767af44a0bb195ddc4f3eed4a5a5cc395e65efda5efa113c2ce4a1459292",
+      "construction": {
+        "score": 0.8930707916508418,
+        "donor_o": 7,
+        "donor_h": 34,
+        "acceptor": 5,
+        "phosphate_chi": 110,
+        "phosphate_water_psi": 0,
+        "base_direction_id": 67,
+        "base_water_psi": 0,
+        "p_to_water": {
+          "H_A_A": 1.7500000000000009,
+          "D_A_A": 2.7149352066185592,
+          "D_H_A_deg": 180.0
+        },
+        "water_to_base": {
+          "H_A_A": 1.8399999999999999,
+          "D_A_A": 2.8,
+          "D_H_A_deg": 180.0
+        },
+        "metrics": {
+          "structural_parse": "PASS",
+          "natoms": 41,
+          "fragment_sizes": "3;3;35",
+          "intact_water_count": 2,
+          "phosphate_OH_count": 2,
+          "base_ring_atoms": "10;11;18;19;20;21",
+          "base_acceptor_atoms": "6;11",
+          "direct_fold": true,
+          "near_fold": true,
+          "fold_state": "direct_phosphate_OH_to_base_fold",
+          "direct_fold_contact_count": 1,
+          "phosphate_water_contact_count": 1,
+          "water_base_contact_count": 1,
+          "bridging_water_count": 0,
+          "bridging_water_ids": "",
+          "closest_phosphate_H_to_base_acceptor_A": 1.5735330764089457,
+          "closest_contact_angle_deg": 175.08146204733538,
+          "closest_contact_acceptor_atom": 6,
+          "closest_contact_acceptor_element": "O",
+          "P_to_base_ring_centroid_A": 5.296535922487203,
+          "P_to_nearest_base_ring_atom_A": 4.2447042089206874,
+          "solute_heavy_radius_gyration_A": 3.1173444201806113,
+          "direct_contacts": [
+            {
+              "donor_O_atom": 7,
+              "donor_H_atom": 34,
+              "acceptor_atom": 6,
+              "acceptor_element": "O",
+              "H_A_A": 1.5735330764089457,
+              "D_A_A": 2.5795032230801724,
+              "D_H_A_deg": 175.08146204733538
+            }
+          ],
+          "closest_base_contacts": [
+            {
+              "donor_O_atom": 7,
+              "donor_H_atom": 34,
+              "acceptor_atom": 6,
+              "acceptor_element": "O",
+              "H_A_A": 1.5735330764089457,
+              "D_A_A": 2.5795032230801724,
+              "D_H_A_deg": 175.08146204733538
+            },
+            {
+              "donor_O_atom": 8,
+              "donor_H_atom": 35,
+              "acceptor_atom": 6,
+              "acceptor_element": "O",
+              "H_A_A": 5.489873681905518,
+              "D_A_A": 4.824385587583252,
+              "D_H_A_deg": 42.62910657631127
+            }
+          ],
+          "phosphate_to_water_contacts": [
+            {
+              "water_id": 1,
+              "donor_O_atom": 8,
+              "donor_H_atom": 35,
+              "water_O_atom": 36,
+              "H_A_A": 1.7500000000000009,
+              "D_A_A": 2.7149352066185592,
+              "D_H_A_deg": 180.0
+            }
+          ],
+          "water_to_base_contacts": [
+            {
+              "water_id": 2,
+              "water_O_atom": 39,
+              "water_H_atom": 40,
+              "acceptor_atom": 6,
+              "acceptor_element": "O",
+              "H_A_A": 1.8399999999999999,
+              "D_A_A": 2.8,
+              "D_H_A_deg": 180.0
+            }
+          ]
+        },
+        "closest_unintended": [
+          0.8930707916508418,
+          2.7149352066185592,
+          7,
+          35
+        ],
+        "water_O_O_A": 7.319339352437526,
+        "max_solute_heavy_displacement_A": 0.0,
+        "changed_solute_atoms": "35"
+      }
+    }
+  ],
+  "atom_indices": "0-based starting-geometry atom order"
+}

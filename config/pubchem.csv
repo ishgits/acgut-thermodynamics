@@ -1,0 +1,5 @@
+species_id,cid,frozen_sdf,expected_formula
+tap_c5link,13863,data/source/structures/tap_c5link.sdf,C4H7N5
+barbituric_acid,6211,data/source/structures/barbituric_acid.sdf,C4H4N2O3
+cyanuric_acid_nlink,7956,data/source/structures/cyanuric_acid_nlink.sdf,C3H3N3O3
+melamine,7955,data/source/structures/melamine.sdf,C3H6N6

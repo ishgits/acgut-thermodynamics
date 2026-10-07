@@ -1,0 +1,5 @@
+name,pubchem_query,cid,formula,iupac_name,title,status,warnings
+Melamine,Melamine,7955,C3H6N6,"1,3,5-triazine-2,4,6-triamine",Melamine,OK,
+"2,4,6-Triaminopyrimidine","2,4,6-Triaminopyrimidine",13863,C4H7N5,"pyrimidine-2,4,6-triamine","2,4,6-Triaminopyrimidine",OK,
+Cyanuric acid,Cyanuric acid,7956,C3H3N3O3,"1,3,5-triazinane-2,4,6-trione",Cyanuric acid,OK,
+Barbituric acid,Barbituric acid,6211,C4H4N2O3,"1,3-diazinane-2,4,6-trione",Barbituric Acid,OK,

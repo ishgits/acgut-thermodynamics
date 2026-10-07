@@ -1,0 +1,2 @@
+species_id,base_sdf,donor_sdf,base_attachment_atom,donor_carbon,donor_oxygen,seed,expected_formula,origin
+barbituric_acid_clink_ribose_phosphate,data/source/structures/barbituric_acid.sdf,data/source/structures/ribo_phosphate.sdf,5,12,4,61453,C9H13N2O10P,audited manual linkage

@@ -1,0 +1,7 @@
+{
+  "command": "crest seed.xyz --gfn2 --alpb water --ewin 6.0 --T 16 --chrg 0 --uhf 0",
+  "seed_sha256": "b8569e10047a4ea3a7244388e00b3cbf2d861d924f08516b3c3b093f08d3aac7",
+  "charge": 0,
+  "multiplicity": 1,
+  "study_threads": 16
+}

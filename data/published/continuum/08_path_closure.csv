@@ -1,0 +1,22 @@
+display_order,reaction_family_id,display_name,path1_step_sum_error_kcal_mol,path2_step_sum_error_kcal_mol,net_path_difference_kcal_mol,passes,analysis_id,method_id,method_label,family_panel,reaction_scope,manuscript_status
+1,adenine,Adenine,0.0,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+2,cytosine,Cytosine,0.0,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+3,guanine,Guanine,-1.1102230246251563e-16,1.1102230246251563e-16,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+4,thymine,Thymine,0.0,4.440892098500626e-16,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+5,uracil,Uracil,0.0,-1.4267920178667734e-10,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+6,xanthine,Xanthine,0.0,-8.881784197001252e-16,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+7,hypoxanthine,Hypoxanthine,0.0,1.4267920178667734e-10,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+8,2_6_diaminopurine,"2,6-Diaminopurine",-4.440892098500626e-16,1.4267875769746752e-10,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+9,purine,Purine,-7.133937884873376e-11,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+10,barbituric_acid_clink,Barbituric acid (C-linked),0.0,2.220446049250313e-16,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+11,barbituric_acid_nlink,Barbituric acid (N-linked),0.0,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+12,tap_c5link,"2,4,6-TAP (C5-linked)",-7.133960089333867e-11,1.1102230246251563e-16,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+13,cyanuric_acid_nlink,Cyanuric acid (N-linked),-1.4267875769746752e-10,-8.881784197001252e-16,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+14,melamine,Melamine,-7.133948987103622e-11,-1.4267909076437488e-10,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+15,isocytosine,Isocytosine,7.133937884873376e-11,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+16,6_methyluracil,6-Methyluracil,0.0,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+17,1_methyluracil,1-Methyluracil,0.0,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+18,dihydrouracil,Dihydrouracil,7.133982293794361e-11,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+19,imidazole,Imidazole,-7.133976742679238e-11,-1.4267909076437488e-10,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+20,imidazole_2_carboxylic_acid,Imidazole-2-carboxylic acid,-7.133937884873376e-11,-8.881784197001252e-16,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary
+21,5_amino_4_imidazolecarboxamide,5-Amino-4-imidazolecarboxamide,0.0,0.0,0.0,True,full21_b3lyp_pcm,1_b3lyp_pcm,B3LYP / PCM,all_21,all balanced reaction quantities,primary

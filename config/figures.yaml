@@ -1,0 +1,28 @@
+figure1:
+  width_cm: 17.8
+  height_cm: 13.2
+  png_dpi: 1200
+  reference_family: adenine
+  reaction_id: P1_total_net_nucleotide_formation
+  panel_a_analysis_id: full21_b3lyp_pcm
+  panel_b_family_panel: targeted_10
+  # Axis labels that replace the registry display name.
+  short_names:
+    5_amino_4_imidazolecarboxamide: AICA
+    tap_c5link: TAP (C5-linked)
+    barbituric_acid_clink: Barbituric-C
+panel_c:
+  temperature_k: 298.0
+  gas_constant_kcal_mol_k: 0.0019872041
+  gas_to_solution_factor: 24.453091396947848
+  water_reservoir_molarity: 55.34
+  hartree_to_kcal_mol: 627.509474
+  convention: fixed PCM-adenine reference; two explicit product waters; unhydrated base references
+si_microsolvation:
+  width_cm: 17.8
+  height_cm: 14.0
+  x_limits_kcal_mol: [-0.6, 13.4]
+  display_family_order: [cytosine, adenine, imidazole, melamine, tap, guanine]
+si_microsolvation_ranking:
+  width_cm: 17.8
+  height_cm: 12.0

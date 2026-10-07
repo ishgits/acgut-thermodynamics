@@ -1,0 +1,251 @@
+{
+  "file_name": "adenine_ribose_conf1_pcm_water.log",
+  "sha256": "c35c5f7936f0c4ab0eb4598b0da4ffac5fb7c3f3f7bcc8f2779341bd6608ead8",
+  "status": "valid",
+  "failures": "",
+  "warnings": "",
+  "functional": "B3LYP",
+  "basis_set": "6-311++G(2DF,2P)",
+  "solvent_model": "PCM",
+  "solvent": "WATER",
+  "route_fingerprint": "B3LYP|6-311++G(2DF,2P)|PCM|WATER",
+  "formula": "C10H13N5O4",
+  "formula_key": "C:10|H:13|N:5|O:4",
+  "connectivity_fingerprint": "6e9c754dc91cdfc5dc6259c0e36fafd922f28a1bb904db3d5e90ee4d992e514d",
+  "charge": 0,
+  "multiplicity": 1,
+  "atom_count": 32,
+  "normal_termination_count": 2,
+  "optimization_completed": true,
+  "frequency_count": 90,
+  "expected_frequency_count": 90,
+  "imaginary_frequency_count": 0,
+  "minimum_frequency_cm1": 46.9554,
+  "temperature_k": 298.0,
+  "pressure_atm": 1.0,
+  "electronic_energy_hartree": -963.905157779,
+  "thermal_gibbs_correction_hartree": 0.206879,
+  "computed_gibbs_hartree": -963.698278779,
+  "printed_gibbs_hartree": -963.698278,
+  "gibbs_residual_hartree": -7.790000609020353e-07,
+  "geometry_source": "frequency_job",
+  "geometry_source_line": 6132,
+  "geometry_precision_angstrom": 1e-06,
+  "atom_indices": "1-based source orientation order",
+  "linear_geometry": false,
+  "thermo_segment_first_line": 5711,
+  "thermo_segment_last_line": 9576,
+  "gaussian_version": "Gaussian 16, Revision B.01,",
+  "calculation_id": "calc_c35c5f7936f0c4ab",
+  "source_log_sha256": "c35c5f7936f0c4ab0eb4598b0da4ffac5fb7c3f3f7bcc8f2779341bd6608ead8",
+  "source_log_name": "adenine_ribose_conf1_pcm_water.log",
+  "source_lines": {
+    "formula": 6126,
+    "electronic_energy_hartree": 6221,
+    "zpe_correction_hartree": 8078,
+    "thermal_energy_correction_hartree": 8079,
+    "thermal_enthalpy_correction_hartree": 8080,
+    "thermal_gibbs_correction_hartree": 8081,
+    "electronic_plus_zpe_hartree": 8082,
+    "H_hartree": 8084,
+    "printed_gibbs_hartree": 8085,
+    "entropy_cal_mol_k": 8089
+  },
+  "frequency_job_normally_terminated": true,
+  "zpe_correction_hartree": 0.250815,
+  "thermal_energy_correction_hartree": 0.267353,
+  "thermal_enthalpy_correction_hartree": 0.268296,
+  "electronic_plus_zpe_hartree": -963.654343,
+  "H_hartree": -963.636861,
+  "entropy_cal_mol_k": 129.328,
+  "geometry_fragments": [
+    [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  ],
+  "distance_inferred_edges": [
+    [
+      1,
+      11
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      2,
+      26
+    ],
+    [
+      3,
+      12
+    ],
+    [
+      3,
+      27
+    ],
+    [
+      4,
+      14
+    ],
+    [
+      4,
+      29
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      5,
+      15
+    ],
+    [
+      5,
+      16
+    ],
+    [
+      6,
+      16
+    ],
+    [
+      6,
+      17
+    ],
+    [
+      7,
+      15
+    ],
+    [
+      7,
+      19
+    ],
+    [
+      8,
+      18
+    ],
+    [
+      8,
+      19
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      9,
+      31
+    ],
+    [
+      9,
+      32
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      10,
+      12
+    ],
+    [
+      10,
+      20
+    ],
+    [
+      11,
+      21
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      12,
+      22
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      13,
+      23
+    ],
+    [
+      14,
+      24
+    ],
+    [
+      14,
+      25
+    ],
+    [
+      15,
+      17
+    ],
+    [
+      16,
+      28
+    ],
+    [
+      17,
+      18
+    ],
+    [
+      19,
+      30
+    ]
+  ],
+  "bond_definition_note": "Distance-inferred adjacency, not an assignment of chemical bond orders or absolute stereochemistry.",
+  "units": {
+    "coordinates": "angstrom",
+    "frequencies": "cm^-1",
+    "energies": "hartree per particle",
+    "temperature": "K",
+    "pressure": "atm",
+    "entropy": "cal mol^-1 K^-1"
+  },
+  "schema_version": "1.0",
+  "files": {
+    "frequencies.csv": "88c0f1d9435f1ae8c2835ade38af9d90f6b5d3d878d7f60fa2e9df3847b0fc8a",
+    "optimized.xyz": "0f859ca78e7c2f0482aef80adf0486db237ec2f4b1c9c4de47a54487762dd4ab",
+    "starting.xyz": "92d1bf2b009bb6091552c0c1fdd759086c7fb5d2db2b58f96c243e4cad5a317a"
+  },
+  "geometry_file": "optimized.xyz"
+}

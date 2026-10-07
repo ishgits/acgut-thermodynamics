@@ -1,0 +1,23 @@
+%nprocshared=8
+%mem=6GB
+%chk=calc_dba554ab032f7da2.chk
+# opt wb97xd/6-311++g(2df,2p) scrf=(smd,solvent=water)
+
+calc_dba554ab032f7da2; regenerated study input
+
+0 1
+P -0.042773 -0.031672 0.105962
+O -1.028211 0.032581 -1.129105
+O 0.649884 1.382504 0.060270
+O 1.137333 -1.006540 -0.260849
+O -0.668565 -0.426244 1.376857
+H -1.706805 -0.652757 -1.125468
+H 0.070727 2.122562 0.275625
+H 1.554149 -0.853139 -1.116979
+
+--Link1--
+%nprocshared=8
+%mem=6GB
+%chk=calc_dba554ab032f7da2.chk
+# freq wb97xd/6-311++g(2df,2p) scrf=(smd,solvent=water) temperature=298 geom=allchk guess=read
+

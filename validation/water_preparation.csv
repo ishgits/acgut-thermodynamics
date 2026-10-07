@@ -1,0 +1,13 @@
+family,placement,calculation_id,atom_order_matches,all_atom_aligned_rmsd_angstrom,matches_first_printed_source_orientation,note
+adenine,splitA,calc_146ced27141c723d,True,1.4666361595415661e-15,True,first orientation of a repaired continuation may differ from the original intended placement
+adenine,splitB,calc_c8ba0d588d9f5799,True,8.28655975935618e-16,True,first orientation of a repaired continuation may differ from the original intended placement
+cytosine,splitA,calc_c03413cefe275eaf,True,1.2297279363959499e-15,True,first orientation of a repaired continuation may differ from the original intended placement
+cytosine,splitB,calc_209cce8566547aff,True,1.3140614043267716e-15,True,first orientation of a repaired continuation may differ from the original intended placement
+guanine,splitA,calc_1b5f66f735355281,True,1.0027390591163028e-15,True,first orientation of a repaired continuation may differ from the original intended placement
+guanine,splitB,calc_ffa6ab27e97bdf79,True,0.5673834448791435,False,first orientation of a repaired continuation may differ from the original intended placement
+tap,splitA,calc_9e9d5987647e1684,True,7.59856018831737e-15,True,first orientation of a repaired continuation may differ from the original intended placement
+tap,splitB,calc_c9a679f675491f42,True,6.572903175196609e-16,True,first orientation of a repaired continuation may differ from the original intended placement
+melamine,splitA,calc_4988b19d69c57b7e,True,1.0097994757773641e-15,True,first orientation of a repaired continuation may differ from the original intended placement
+melamine,splitB,calc_a821ef954e5ab9d9,True,9.21407265748557e-16,True,first orientation of a repaired continuation may differ from the original intended placement
+imidazole,splitA,calc_d4b4aa8b53070bb4,True,1.7865033366293515e-15,True,first orientation of a repaired continuation may differ from the original intended placement
+imidazole,splitB,calc_ae92928552ba62b6,True,5.231221197456667e-16,True,first orientation of a repaired continuation may differ from the original intended placement

@@ -1,0 +1,26 @@
+{
+  "policy": {
+    "mode": "energy",
+    "window": 3.0,
+    "n_keep": 5
+  },
+  "rmsd_cutoff_angstrom": 0.5,
+  "ensemble_order_policy": "preserve source order and original 1-based conformer numbers",
+  "adjacent_energy_inversions": 0,
+  "seed_sha256": "9e3acbdf60d84f2234b47a4586c222c14bc80b88d56e82fa638b89047635b28d",
+  "ensemble_sha256": "8b53a8a8855613359f386eac155bbe05f8cd56abffc511de5c1188b1621a2231",
+  "candidates": [
+    {
+      "candidate": "dft_seed",
+      "crest_relative_energy_kcal_mol": null,
+      "heavy_atom_rg_angstrom": 2.081034725822094,
+      "input_sha256": "367d0f23d6cdc18529275f3004563700122c29ee2031f059ff1efc860ce0aacf"
+    },
+    {
+      "candidate": "conf1",
+      "crest_relative_energy_kcal_mol": 0.0,
+      "heavy_atom_rg_angstrom": 2.0738456801517953,
+      "input_sha256": "57e2d73d836efd5e5e6327d28c0649260392a1e412a12ef02575720d45176c35"
+    }
+  ]
+}

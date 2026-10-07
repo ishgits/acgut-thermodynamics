@@ -1,0 +1,18 @@
+{
+  "width_cm": 17.80000000000147,
+  "height_cm": 13.200000000001529,
+  "png_pixels": [
+    8409,
+    6236
+  ],
+  "png_dpi": [
+    1199.9976,
+    1199.9976
+  ],
+  "pdf_vector": true,
+  "right_plot_width_cm": 6.675000000000001,
+  "panel_c_reference": "PCM adenine",
+  "adenine_selected_hydrated_displacement_kcal_mol": 0.6687099310990341,
+  "temperature_k": 298.0,
+  "water_convention_offset_kcal_mol": -8.539633166577238
+}

@@ -1,0 +1,37 @@
+methods:
+  1_b3lyp_pcm:
+    functional: B3LYP
+    basis_set: 6-311++G(2DF,2P)
+    solvent_model: PCM
+    solvent: WATER
+    charge: 0
+    multiplicity: 1
+    temperature_k: 298.0
+    pressure_atm: 1.0
+  2_b3lyp_smd:
+    functional: B3LYP
+    basis_set: 6-311++G(2DF,2P)
+    solvent_model: SMD
+    solvent: WATER
+    charge: 0
+    multiplicity: 1
+    temperature_k: 298.0
+    pressure_atm: 1.0
+  3_wb97xd_pcm:
+    functional: WB97XD
+    basis_set: 6-311++G(2DF,2P)
+    solvent_model: PCM
+    solvent: WATER
+    charge: 0
+    multiplicity: 1
+    temperature_k: 298.0
+    pressure_atm: 1.0
+  4_wb97xd_smd:
+    functional: WB97XD
+    basis_set: 6-311++G(2DF,2P)
+    solvent_model: SMD
+    solvent: WATER
+    charge: 0
+    multiplicity: 1
+    temperature_k: 298.0
+    pressure_atm: 1.0

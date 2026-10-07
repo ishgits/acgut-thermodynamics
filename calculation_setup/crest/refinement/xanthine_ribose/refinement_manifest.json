@@ -1,0 +1,50 @@
+{
+  "policy": {
+    "mode": "energy",
+    "window": 3.0,
+    "n_keep": 5
+  },
+  "rmsd_cutoff_angstrom": 0.5,
+  "ensemble_order_policy": "preserve source order and original 1-based conformer numbers",
+  "adjacent_energy_inversions": 0,
+  "seed_sha256": "763883c5550cd4a389b923147214a01e057c8c2e9492629616ed78ac2676d35c",
+  "ensemble_sha256": "1b0abf10215ca604c60c887775c8215691d01c0e9607d9bde5a2326d7db83dbc",
+  "candidates": [
+    {
+      "candidate": "dft_seed",
+      "crest_relative_energy_kcal_mol": null,
+      "heavy_atom_rg_angstrom": 3.2672053014643625,
+      "input_sha256": "d241fbbaa399b73a984614630a4d17d325ef60028a3f18e5157d758e3d4c7883"
+    },
+    {
+      "candidate": "conf1",
+      "crest_relative_energy_kcal_mol": 0.0,
+      "heavy_atom_rg_angstrom": 2.9579958905878425,
+      "input_sha256": "7794ab8516512386c4077bc633c416bf93138311fab59b797cf64d1127210d0d"
+    },
+    {
+      "candidate": "conf2",
+      "crest_relative_energy_kcal_mol": 0.9779484149472888,
+      "heavy_atom_rg_angstrom": 3.0076680700702805,
+      "input_sha256": "e2e58be082f958af1e52bbf2094db2b7a575e36765439c0008e387cbcd11852a"
+    },
+    {
+      "candidate": "conf7",
+      "crest_relative_energy_kcal_mol": 1.5327483662480395,
+      "heavy_atom_rg_angstrom": 2.9479716235436553,
+      "input_sha256": "eb689a94bd7070074fbb11eb67fa0fe66f363e9cef532b0ff0ca103bc7827087"
+    },
+    {
+      "candidate": "conf10",
+      "crest_relative_energy_kcal_mol": 1.8878748029048782,
+      "heavy_atom_rg_angstrom": 2.96979495970289,
+      "input_sha256": "a1505cbb3c642c3ade65db184ffcf52c8fe4ae032b80f732d8cb7f0eaf2b35b2"
+    },
+    {
+      "candidate": "conf12",
+      "crest_relative_energy_kcal_mol": 2.264236160164261,
+      "heavy_atom_rg_angstrom": 3.002962352225993,
+      "input_sha256": "1399f5dc22fa7d557adffabffd7ded74b70f298f5f8939a61141e51372fb0496"
+    }
+  ]
+}

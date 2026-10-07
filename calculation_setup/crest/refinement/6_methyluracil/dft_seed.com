@@ -1,0 +1,30 @@
+%nprocshared=8
+%mem=6GB
+%chk=dft_seed.chk
+# opt=(tight,calcfc,maxcycles=200) b3lyp/6-311++g(2df,2p) scrf=(iefpcm,solvent=water)
+
+dft_seed; regenerated study input
+
+0 1
+O -0.988820 2.460447 -0.000000
+O -1.837224 -2.016991 -0.000000
+N 0.773959 1.009376 0.000000
+N -1.388312 0.209662 0.000000
+C 1.283260 -0.268527 -0.000000
+C 0.439268 -1.326631 -0.000000
+C -0.569594 1.314262 0.000000
+C -0.988767 -1.131168 0.000000
+C 2.771978 -0.378589 0.000000
+H 1.398942 1.801370 -0.000000
+H 0.814539 -2.336314 -0.000000
+H 3.190353 0.112565 0.880069
+H 3.080119 -1.419443 0.000000
+H 3.190353 0.112564 -0.880069
+H -2.382360 0.392257 0.000000
+
+--Link1--
+%nprocshared=8
+%mem=6GB
+%chk=dft_seed.chk
+# freq b3lyp/6-311++g(2df,2p) scrf=(iefpcm,solvent=water) temperature=298 Geom=AllChk Guess=Read
+

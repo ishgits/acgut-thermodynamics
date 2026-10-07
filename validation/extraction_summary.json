@@ -1,0 +1,14 @@
+{
+  "source_log_count": 420,
+  "continuum_calculations": 408,
+  "primary_water_candidates": 12,
+  "status_counts": {
+    "valid": 417,
+    "failed": 3
+  },
+  "independent_comparisons": 4620,
+  "independent_disagreements": 0,
+  "synthetic_control_excluded": "neg_test_H2SO4_V_freq.log",
+  "source_logs_released": false,
+  "extraction_coverage": "all bundled calculation sources parsed afresh using production and independent implementations"
+}

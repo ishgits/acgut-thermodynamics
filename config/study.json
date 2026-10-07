@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "scope": "Continuum analysis, Figure 1 and the SI microsolvation sensitivity (entropy treatments and 64 placement combinations)",
+  "reference_family": "adenine",
+  "hartree_to_kcal_mol": 627.5094740631,
+  "family_panels": {
+    "targeted_10": ["adenine", "cytosine", "guanine", "thymine", "uracil", "xanthine", "melamine", "imidazole", "tap_c5link", "barbituric_acid_clink"],
+    "canonical_5": ["adenine", "cytosine", "guanine", "thymine", "uracil"]
+  },
+  "harmonic_thermochemistry": {"temperature_k": 298.0, "pressure_atm": 1.0},
+  "panel_c_display_convention": {
+    "temperature_k": 298.0,
+    "gas_constant_kcal_mol_k": 0.0019872041,
+    "gas_to_solution_factor": 24.453091396947848,
+    "water_reservoir_molarity": 55.34,
+    "hartree_to_kcal_mol": 627.509474
+  },
+  "sampling": {
+    "crest": "GFN2-xTB, ALPB water, default iMTD-GC, 6 kcal/mol retained window",
+    "heavy_atom_rmsd_cutoff_angstrom": 0.5,
+    "include_dft_seed": true,
+    "selection_rules": [
+      {"moieties": ["nucleotide", "ribo_phosphate"], "mode": "rg_stratified", "energy_window_kcal_mol": 6.0, "rg_bins": 3, "per_bin": 2},
+      {"moieties": ["nucleoside", "base", "reference"], "mode": "energy", "energy_window_kcal_mol": 3.0, "max_keep": 5}
+    ],
+    "note": "The shipped CREST ensembles and calculation starts are authoritative; stochastic searches and newly embedded structures can change across software versions."
+  },
+  "si_microsolvation": {
+    "treatments": ["harmonic", "floor_50", "floor_100", "grimme_qrrho_100"],
+    "family_order": ["adenine", "cytosine", "imidazole", "melamine", "tap", "guanine"],
+    "display_family_order": ["cytosine", "adenine", "imidazole", "melamine", "tap", "guanine"],
+    "reference_family": "adenine",
+    "placement_bits": ["splitA", "splitB"]
+  },
+  "raw_logs_distributed": false,
+  "upstream_adaptation_doi": "10.5281/zenodo.21365151"
+}

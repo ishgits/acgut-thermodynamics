@@ -1,0 +1,57 @@
+{
+  "policy": {
+    "mode": "rg_stratified",
+    "window": 6.0,
+    "n_bins": 3,
+    "per_bin": 2
+  },
+  "rmsd_cutoff_angstrom": 0.5,
+  "ensemble_order_policy": "preserve source order and original 1-based conformer numbers",
+  "adjacent_energy_inversions": 0,
+  "seed_sha256": "b8569e10047a4ea3a7244388e00b3cbf2d861d924f08516b3c3b093f08d3aac7",
+  "ensemble_sha256": "32c2094836f5b2031020978045cf46bf004ead740a3c709f89290f60d6613625",
+  "candidates": [
+    {
+      "candidate": "dft_seed",
+      "crest_relative_energy_kcal_mol": null,
+      "heavy_atom_rg_angstrom": 3.769949771641877,
+      "input_sha256": "315f4f2ab5e02dfc3f1a674b3fbc60a35d00155cf1c9df9e77881c5c0c0daf6f"
+    },
+    {
+      "candidate": "conf1",
+      "crest_relative_energy_kcal_mol": 0.0,
+      "heavy_atom_rg_angstrom": 2.875274513790371,
+      "input_sha256": "b781cb3bd31e7f25677e2ffc4c01f094faeb72ceb5e8cb8d9cee047befa9f77a"
+    },
+    {
+      "candidate": "conf7",
+      "crest_relative_energy_kcal_mol": 2.4309842527085586,
+      "heavy_atom_rg_angstrom": 2.8506338507585576,
+      "input_sha256": "975825dd07e84e7124b7fc298d69dadb1bc63d1191249124c7a557ac21ef17af"
+    },
+    {
+      "candidate": "conf38",
+      "crest_relative_energy_kcal_mol": 4.486090330448154,
+      "heavy_atom_rg_angstrom": 3.1978775358070517,
+      "input_sha256": "4fc8f76458ec6d20ab88f22173c8ae6ec7ef93fff8812546ea599496228f5f42"
+    },
+    {
+      "candidate": "conf60",
+      "crest_relative_energy_kcal_mol": 5.446932837135008,
+      "heavy_atom_rg_angstrom": 3.3225389054154055,
+      "input_sha256": "cdc5b62f0656f3b49ba70f522e74b4da6926fa5dedd569384545588e7201637e"
+    },
+    {
+      "candidate": "conf65",
+      "crest_relative_energy_kcal_mol": 5.700402738996135,
+      "heavy_atom_rg_angstrom": 3.5722413245058755,
+      "input_sha256": "f5b85eb1fc989fdcb5e093a5688579e7af649ea7da449baef955e679bfdfe2ed"
+    },
+    {
+      "candidate": "conf68",
+      "crest_relative_energy_kcal_mol": 5.751921266816839,
+      "heavy_atom_rg_angstrom": 3.4845617099340043,
+      "input_sha256": "6a7eeb0055042d1a43737fb25de2b79762cdeeac96e26adf56bdcca9c8dc8591"
+    }
+  ]
+}

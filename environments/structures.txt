@@ -1,0 +1,2 @@
+-r reproduction.txt
+rdkit==2025.9.3

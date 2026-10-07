@@ -1,0 +1,27 @@
+{
+  "scope": "SI microsolvation sensitivity on a fixed Figure 1C reference and rank occupancy over 64 placement combinations",
+  "si_microsolvation": {
+    "artwork": [
+      "results/supplement/si_microsolvation_sensitivity.png",
+      "results/supplement/si_microsolvation_sensitivity.pdf",
+      "results/supplement/si_microsolvation_sensitivity.svg"
+    ],
+    "points": "results/supplement/si_microsolvation_plotted_data.csv",
+    "caption": "results/supplement/SI_CAPTION.md",
+    "generator": "src/atcgu/plotting/si_microsolvation.py",
+    "analysis": ["src/atcgu/analysis/microsolvation_si.py", "src/atcgu/analysis/thermochemistry_sensitivity.py"]
+  },
+  "ranking_occupancy": {
+    "artwork": [
+      "results/supplement/si_microsolvation_ranking_occupancy.png",
+      "results/supplement/si_microsolvation_ranking_occupancy.pdf",
+      "results/supplement/si_microsolvation_ranking_occupancy.svg"
+    ],
+    "points": "results/supplement/si_microsolvation_ranking_plotted_data.csv",
+    "caption": "results/supplement/SI_CAPTION.md",
+    "generator": "src/atcgu/plotting/si_microsolvation.py"
+  },
+  "supporting_tables": "data/published/si_microsolvation",
+  "reference_update_review": "results/supplement/MICROSOLVATION_REFERENCE_UPDATE.md",
+  "treatments": ["harmonic", "floor_50", "floor_100", "grimme_qrrho_100"]
+}

@@ -1,0 +1,28 @@
+%nprocshared=8
+%mem=6GB
+%chk=conf1.chk
+# opt=(tight,calcfc,maxcycles=200) b3lyp/6-311++g(2df,2p) scrf=(iefpcm,solvent=water)
+
+conf1; regenerated study input
+
+0 1
+O 2.301241 -0.975945 0.000065
+N 0.037481 -0.933416 -0.000014
+N -1.212698 1.049558 -0.000001
+N -2.280823 -0.971473 -0.000022
+C -1.150989 -0.265269 -0.000039
+C 1.272708 -0.294250 -0.000043
+C 1.180458 1.130127 -0.000089
+C -0.049852 1.718229 -0.000031
+H 0.060562 -1.947519 -0.000042
+H 2.093734 1.699041 0.000148
+H -0.152709 2.794405 0.001031
+H -3.149957 -0.466269 0.000220
+H -2.276524 -1.976191 0.000518
+
+--Link1--
+%nprocshared=8
+%mem=6GB
+%chk=conf1.chk
+# freq b3lyp/6-311++g(2df,2p) scrf=(iefpcm,solvent=water) temperature=298 Geom=AllChk Guess=Read
+

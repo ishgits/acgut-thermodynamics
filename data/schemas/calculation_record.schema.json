@@ -1,0 +1,446 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Portable study calculation record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "calculation_id",
+    "status",
+    "failures",
+    "warnings",
+    "source_log_sha256",
+    "source_log_name",
+    "sha256",
+    "file_name",
+    "files",
+    "geometry_file",
+    "units",
+    "gaussian_version",
+    "route_fingerprint",
+    "functional",
+    "basis_set",
+    "solvent_model",
+    "solvent",
+    "formula",
+    "formula_key",
+    "connectivity_fingerprint",
+    "charge",
+    "multiplicity",
+    "atom_count",
+    "atom_indices",
+    "linear_geometry",
+    "geometry_source",
+    "geometry_source_line",
+    "geometry_precision_angstrom",
+    "normal_termination_count",
+    "optimization_completed",
+    "frequency_job_normally_terminated",
+    "frequency_count",
+    "expected_frequency_count",
+    "imaginary_frequency_count",
+    "minimum_frequency_cm1",
+    "temperature_k",
+    "pressure_atm",
+    "electronic_energy_hartree",
+    "zpe_correction_hartree",
+    "thermal_energy_correction_hartree",
+    "thermal_enthalpy_correction_hartree",
+    "thermal_gibbs_correction_hartree",
+    "electronic_plus_zpe_hartree",
+    "H_hartree",
+    "computed_gibbs_hartree",
+    "printed_gibbs_hartree",
+    "gibbs_residual_hartree",
+    "entropy_cal_mol_k",
+    "source_lines",
+    "thermo_segment_first_line",
+    "thermo_segment_last_line"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "calculation_id": {
+      "type": "string",
+      "pattern": "^calc_[0-9a-f]{16}$"
+    },
+    "status": {
+      "enum": [
+        "valid",
+        "warning",
+        "failed"
+      ]
+    },
+    "failures": {
+      "type": "string",
+      "description": "Semicolon-separated failure labels; empty when usable"
+    },
+    "warnings": {
+      "type": "string"
+    },
+    "source_log_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "source_log_name": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "SHA-256 of the parsed source log (same as source_log_sha256)"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "Source log file name at parse time"
+    },
+    "files": {
+      "type": "object",
+      "required": [
+        "frequencies.csv"
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{64}$"
+      }
+    },
+    "geometry_file": {
+      "enum": [
+        "optimized.xyz",
+        "incomplete.xyz",
+        null
+      ]
+    },
+    "units": {
+      "type": "object",
+      "required": [
+        "coordinates",
+        "frequencies",
+        "energies"
+      ],
+      "properties": {
+        "coordinates": {
+          "const": "angstrom"
+        },
+        "frequencies": {
+          "const": "cm^-1"
+        },
+        "energies": {
+          "const": "hartree per particle"
+        },
+        "temperature": {
+          "const": "K"
+        },
+        "pressure": {
+          "const": "atm"
+        },
+        "entropy": {
+          "const": "cal mol^-1 K^-1"
+        }
+      }
+    },
+    "gaussian_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "route_fingerprint": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "FUNCTIONAL|BASIS|MODEL|SOLVENT of the final frequency job"
+    },
+    "functional": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "basis_set": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "solvent_model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "solvent": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "formula": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "formula_key": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "connectivity_fingerprint": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "charge": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "multiplicity": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "atom_count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "atom_indices": {
+      "type": "string",
+      "description": "Atom numbering convention of the geometry and derived connectivity"
+    },
+    "linear_geometry": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "geometry_source": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "geometry_source_line": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "geometry_precision_angstrom": {
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "normal_termination_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "optimization_completed": {
+      "type": "boolean"
+    },
+    "frequency_job_normally_terminated": {
+      "type": "boolean"
+    },
+    "frequency_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expected_frequency_count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "imaginary_frequency_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "minimum_frequency_cm1": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "temperature_k": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "pressure_atm": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "electronic_energy_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "zpe_correction_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "thermal_energy_correction_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "thermal_enthalpy_correction_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "thermal_gibbs_correction_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "electronic_plus_zpe_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "H_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "computed_gibbs_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "printed_gibbs_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "gibbs_residual_hartree": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "entropy_cal_mol_k": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "source_lines": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "description": "One-based source-log line of each extracted value"
+    },
+    "thermo_segment_first_line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "thermo_segment_last_line": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "geometry_fragments": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "description": "Release-time enrichment, absent straight after extraction: one-based atoms of each connected fragment"
+    },
+    "distance_inferred_edges": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "description": "Release-time enrichment, absent straight after extraction: one-based distance-inferred bonds"
+    },
+    "bond_definition_note": {
+      "type": "string",
+      "description": "Release-time enrichment, absent straight after extraction"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "valid",
+              "warning"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "charge",
+          "multiplicity",
+          "electronic_energy_hartree",
+          "thermal_gibbs_correction_hartree",
+          "computed_gibbs_hartree",
+          "optimization_completed",
+          "frequency_job_normally_terminated"
+        ],
+        "properties": {
+          "geometry_file": {
+            "const": "optimized.xyz"
+          },
+          "optimization_completed": {
+            "const": true
+          },
+          "frequency_job_normally_terminated": {
+            "const": true
+          },
+          "charge": {
+            "type": "integer"
+          },
+          "multiplicity": {
+            "type": "integer"
+          },
+          "computed_gibbs_hartree": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false,
+  "$comment": "Declares all 55 record fields. geometry_fragments, distance_inferred_edges and bond_definition_note are optional release-time enrichment, absent straight after `atcgu extract`. Runtime validation additionally verifies hashes, path containment, contiguous CSV modes, geometry composition/connectivity, mode counts, finite energies, method/state and structural contracts."
+}

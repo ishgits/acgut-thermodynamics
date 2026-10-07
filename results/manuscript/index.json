@@ -1,0 +1,18 @@
+{
+  "scope": "Continuum analysis and Figure 1",
+  "figure1": {
+    "artwork": [
+      "results/manuscript/figure1.png",
+      "results/manuscript/figure1.pdf",
+      "results/manuscript/figure1.svg"
+    ],
+    "points": "data/published/figure1/figure1_plotted_data.csv",
+    "caption": "results/manuscript/FIGURE_CAPTION_AND_TEXT.md",
+    "generator": "src/atcgu/plotting/figure1.py"
+  },
+  "supporting_tables": {
+    "continuum": "data/published/continuum",
+    "primary_water": "data/published/figure1"
+  },
+  "supplement": "results/supplement/index.json"
+}

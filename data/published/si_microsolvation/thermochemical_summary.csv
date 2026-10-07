@@ -1,0 +1,5 @@
+treatment,selected_order,c_minus_a,pairwise_retained,unique_placement_orders,ac_top_two_choices
+floor_100,cytosine < adenine < imidazole < melamine < tap < guanine,-0.011222564374185874,15,15,36
+floor_50,cytosine < adenine < imidazole < melamine < tap < guanine,-0.07125794315335966,14,18,32
+grimme_qrrho_100,cytosine < adenine < imidazole < melamine < tap < guanine,-0.23947574045552886,15,18,32
+harmonic,cytosine < adenine < imidazole < melamine < tap < guanine,-0.44233644833583785,13,24,32

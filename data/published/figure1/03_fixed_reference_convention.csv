@@ -1,0 +1,2 @@
+reference_family,harmonic_continuum_nucleotide_g_hartree,harmonic_base_g_hartree,harmonic_continuum_nucleotide_minus_base_hartree,harmonic_water_g_hartree,explicit_water_count,temperature_k,display_hartree_to_kcal_mol,standard_state_water_reservoir_correction_kcal_mol,convention
+adenine,-1531.5661146500001,-467.411776062,-1064.1543385880002,-76.4666763644,2,298.0,627.509474,-8.539633166577236,fixed harmonic continuum-adenine nucleotide-minus-base score; fixed harmonic isolated-water reservoir
