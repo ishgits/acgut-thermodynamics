@@ -1,6 +1,6 @@
 # Provenance
 
-`file_checksums.csv` records the SHA-256 and size of every released file except itself, ignored user runs and caches. `python workflows/check_integrity.py` verifies it; `python workflows/write_checksums.py` rewrites it after an intentional change.
+Git tracks the released files. The report from `atcgu reproduce` compares recomputed numerical results with `data/published/`; `atcgu validate` checks the released records and source data. The former repository-wide checksum file and its maintenance scripts have been removed.
 
 `sampling_software.csv` records, for each of the 66 CREST runs, the CREST version and commit, backend, command, settings, normal termination and the SHA-256 of the CREST log (logs are not distributed).
 

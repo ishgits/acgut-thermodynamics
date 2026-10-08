@@ -30,10 +30,10 @@ Install Jupyter (`python -m pip install '.[notebooks]'`) and open `notebooks/01_
 4. **Water placement** — the two-water test for the six leading families
 5. **Decomposition** — the net reaction split into nucleoside formation and phosphorylation
 
-The derivations are written out in the notebook cells; plumbing (record parsing, plotting) lives in `src/atcgu/` and is called from the notebook, not duplicated in it. To trace any single number — say, the 0.36 kcal/mol adenine–cytosine separation — start from `outputs/first_run/tables/09_relative_rankings.csv` and follow the notebook back to the records it came from. The [data dictionary](DATA_DICTIONARY.md) defines every table and field.
+The notebook is a guided review. It reads a raw calculation record, recomputes baseline reaction energies from the published selected-species table, and examines published intermediate tables for the later steps. For the full derivation from records, run `atcgu reproduce`; its tables and the [data dictionary](DATA_DICTIONARY.md) let you trace individual results.
 
 ## 4. See how the inputs were made
 
-`calculation_setup/` holds the exact inputs that were run (Gaussian `.com` files, CREST jobs, water-placement starts) — a static record. The two programmatic construction steps are scripted and readable: `src/atcgu/building/molecules.py` (+ `config/construction.csv`) built the 20 non-PubChem starting structures, and `src/atcgu/sampling/water.py` built the two-water starting arrangements. [Calculation setup](CALCULATIONS.md) describes the layout.
+`calculation_setup/` holds CREST and water-placement inputs plus Gaussian rerun inputs reconstructed from optimized geometries. The two programmatic construction steps are scripted and readable: `src/atcgu/building/molecules.py` (+ `config/construction.csv`) built the 20 non-PubChem starting structures, and `src/atcgu/sampling/water.py` built the two-water starting arrangements. [Calculation setup](CALCULATIONS.md) describes the layout.
 
 That's the entire workflow. There is deliberately no machinery here for extending the study to new molecules — this repo documents and verifies the published analysis; extending it is future work.
