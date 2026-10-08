@@ -34,8 +34,8 @@ mpl.rcParams.update({"font.family": "DejaVu Sans", "font.size": FS, "axes.linewi
                      "axes.spines.top": False, "axes.spines.right": False, "axes.titlesize": FS + 0.5,
                      "legend.fontsize": FS - 0.5, "svg.fonttype": "none", "pdf.fonttype": 42,
                      "svg.hashsalt": "atcgu-study"})
-# Undated vector exports so identical inputs give identical PDF/SVG bytes.
-SAVE_METADATA = {"png": None, "pdf": {"CreationDate": None}, "svg": {"Date": None}}
+# Undated vector exports so identical inputs give identical PDF bytes.
+SAVE_METADATA = {"png": None, "pdf": {"CreationDate": None}}
 
 def style_labels(ax, fams):
     for t, f in zip(ax.get_yticklabels(), fams):

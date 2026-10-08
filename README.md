@@ -68,7 +68,7 @@ Each run needs a fresh output directory. Add `--no-figures` to `reproduce` to sk
 | `src/atcgu/` | The analysis, validation, and plotting code |
 | `src/atcgu/building/molecules.py` | How the 20 programmatically constructed starting structures were built (with `config/construction.csv`) |
 | `src/atcgu/sampling/water.py` | How the two-water microsolvation starting structures were constructed |
-| `results/` | Rendered Figure 1, SI figures, captions, and plotted data |
+| `results/` | Rendered Figure 1, the SI entropy figure, and plotted data |
 | `docs/` | [Workflow](docs/WORKFLOW.md), [data dictionary](docs/DATA_DICTIONARY.md), [calculation setup](docs/CALCULATIONS.md), [troubleshooting](docs/TROUBLESHOOTING.md) |
 
 ## Notes
