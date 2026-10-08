@@ -65,7 +65,7 @@ JSON schema: [calculation_record.schema.json](../data/schemas/calculation_record
 
 ## SI microsolvation tables
 
-`data/published/si_microsolvation/` holds the published SI tables; `atcgu reproduce` writes the same files to `tables/si/`. `treatment` is one of `harmonic`, `floor_50`, `floor_100` or `grimme_qrrho_100` (see [Methods](METHODS.md)).
+`data/published/si_microsolvation/` holds the published SI tables; `atcgu reproduce` writes the same files to `tables/si/`. `treatment` is one of `harmonic`, `floor_50`, `floor_100` or `grimme_qrrho_100`; see the manuscript Methods for the computational details.
 
 | Table | Key | Fields |
 |---|---|---|

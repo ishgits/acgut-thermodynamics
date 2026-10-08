@@ -1,5 +1,0 @@
-label,pubchem_query,expected_formula,status,n_cids,selected_cid,selected_reason,warnings
-Melamine,Melamine,C3H6N6,OK,1,7955,single_hit,[]
-"2,4,6-Triaminopyrimidine","2,4,6-Triaminopyrimidine",C4H7N5,OK,1,13863,single_hit,[]
-Cyanuric acid,Cyanuric acid,C3H3N3O3,OK,1,7956,single_hit,[]
-Barbituric acid,Barbituric acid,,OK,1,6211,single_hit,[]

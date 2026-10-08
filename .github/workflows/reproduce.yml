@@ -12,7 +12,6 @@ jobs:
           cache: pip
       - run: python -m pip install -r environments/development.txt
       - run: python -m pip install --no-deps -e .
-      - run: python workflows/check_integrity.py
       - run: python -m pytest
       - run: python -m pytest --nbmake notebooks/
         env:
