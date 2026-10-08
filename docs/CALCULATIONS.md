@@ -11,7 +11,7 @@ This page documents the released calculation inputs. `calculation_setup/` is a s
 
 | Location | Contents |
 |---|---|
-| `gaussian/jobs/` | Reconstructed `.com` rerun inputs for 417 usable records; three failed sources were skipped and are documented in the records |
+| `gaussian/jobs/` | Reconstructed `.com` rerun inputs for all 417 records |
 | `crest/jobs/` | CREST search inputs: seed geometries, sampling configs, run scripts |
 | `crest/refinement/` | DFT refinement starts selected from the CREST ensembles, with `refinement_manifest.json` recording the selection policy, conformer numbers, and relative energies |
 | `microsolvation/jobs/` | The two-water starting arrangements per family |

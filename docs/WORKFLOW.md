@@ -11,26 +11,26 @@ python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r environments/reproduction.txt
 python -m pip install --no-deps -e .
-atcgu reproduce --out outputs/first_run
+acgut reproduce --out outputs/first_run
 ```
 
 ## 2. Check the run
 
 Open `outputs/first_run/VALIDATION_REPORT.md`. It should say **28 of 28 published-result comparisons passed** — every recomputed table matched against `data/published/`. That report is the verification; if a check fails, see [Troubleshooting](TROUBLESHOOTING.md). Use a fresh directory under `outputs/` for each run.
 
-For an independent second opinion: `atcgu audit --out outputs/audit_01` re-derives the selections, energies, ranks, and plotted points using only the Python standard library (no project code). `atcgu validate --out outputs/records_01` checks the calculation records, source structures, and sampling checksums.
+For an independent second opinion: `acgut audit --out outputs/audit_01` re-derives the selections, energies, ranks, and plotted points using only the Python standard library (no project code). `acgut validate --out outputs/records_01` checks the calculation records, source structures, and sampling checksums.
 
 ## 3. Follow the derivation
 
 Install Jupyter (`python -m pip install '.[notebooks]'`) and open `notebooks/01_reproduce_and_review.ipynb`. It walks the analysis the way the study was actually done:
 
-1. **The data** — what the 420 records contain and what each field means
+1. **The data** — what the 417 records contain and what each field means
 2. **Baseline reaction energies** — the net nucleotide-formation reaction across all 21 families
 3. **Method/solvation sensitivity** — ten families under four computational treatments
 4. **Water placement** — the two-water test for the six leading families
 5. **Decomposition** — the net reaction split into nucleoside formation and phosphorylation
 
-The notebook is a guided review. It reads a raw calculation record, recomputes baseline reaction energies from the published selected-species table, and examines published intermediate tables for the later steps. For the full derivation from records, run `atcgu reproduce`; its tables and the [data dictionary](DATA_DICTIONARY.md) let you trace individual results.
+The notebook is a guided review. It reads a raw calculation record, recomputes baseline reaction energies from the published selected-species table, and examines published intermediate tables for the later steps. For the full derivation from records, run `acgut reproduce`; its tables and the [data dictionary](DATA_DICTIONARY.md) let you trace individual results.
 
 ## 4. See how the inputs were made
 

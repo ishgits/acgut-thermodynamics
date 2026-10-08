@@ -11,7 +11,7 @@ CSV files are UTF-8 with headers. Empty cells mean missing/not applicable; they 
 | `method_id` | Functional/continuum treatment in `methods.yaml` |
 | `analysis_id` | Candidate cohort, species selection and reaction scope in `analysis_sets.csv` |
 | `calculation_id` | `calc_` plus the first 16 hex characters of the source-log SHA-256; full source SHA is retained and IDs are unique in the release |
-| `config/calculation_manifest.csv` | All 408 continuum records, source hashes, roles, identity claims, method and primary inclusion flags |
+| `config/calculation_manifest.csv` | All 405 continuum records, source hashes, roles, identity claims, method and primary inclusion flags |
 | `config/microsolvation_candidates.csv` | The 12 primary cluster candidates and expected fragment/contact criteria |
 | `config/microsolvation_references.csv` | Base and selected continuum-nucleotide reference for each hydrated family; `folded_start` marks the nucleotides whose water starts keep the direct fold |
 | `config/construction.csv` | Explicit-H source SDFs, **zero-based** attachment/OH atom indices, seed and expected product formula |
@@ -65,7 +65,7 @@ JSON schema: [calculation_record.schema.json](../data/schemas/calculation_record
 
 ## SI microsolvation tables
 
-`data/published/si_microsolvation/` holds the published SI tables; `atcgu reproduce` writes the same files to `tables/si/`. `treatment` is one of `harmonic`, `floor_50`, `floor_100` or `grimme_qrrho_100`; see the manuscript Methods for the computational details.
+`data/published/si_microsolvation/` holds the published SI tables; `acgut reproduce` writes the same files to `tables/si/`. `treatment` is one of `harmonic`, `floor_50`, `floor_100` or `grimme_qrrho_100`; see the manuscript Methods for the computational details.
 
 | Table | Key | Fields |
 |---|---|---|

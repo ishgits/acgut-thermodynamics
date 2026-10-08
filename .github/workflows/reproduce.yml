@@ -16,12 +16,12 @@ jobs:
       - run: python -m pytest --nbmake notebooks/
         env:
           MPLBACKEND: Agg
-      - run: atcgu validate --out outputs/ci-records
-      - run: atcgu audit --out outputs/ci-arithmetic
-      - run: atcgu reproduce --out outputs/ci-reproduction
+      - run: acgut validate --out outputs/ci-records
+      - run: acgut audit --out outputs/ci-arithmetic
+      - run: acgut reproduce --out outputs/ci-reproduction
         env:
           MPLBACKEND: Agg
-      - run: atcgu reproduce --no-figures --out outputs/ci-numerical
+      - run: acgut reproduce --no-figures --out outputs/ci-numerical
       - uses: actions/upload-artifact@v4
         if: always()
         with:

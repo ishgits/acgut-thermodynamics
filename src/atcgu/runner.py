@@ -40,13 +40,15 @@ def run(root: Path, output: Path, *, figures: bool = True, dpi: int | None = Non
     panel_a = figure_config["figure1"]
     rankings = outputs["09_relative_rankings"]
     rankings.loc[rankings.analysis_id.eq(panel_a["panel_a_analysis_id"]) & rankings.reaction_id.eq(panel_a["reaction_id"])].to_csv(tables / "figure1_panel_a.csv", index=False)
-    plotted = si_plotted = ranking_plotted = None
+    plotted = si_plotted = ranking_plotted = decomposition_plotted = None
     if figures:
         from .plotting.figure1 import render_figure1
         from .plotting.si_microsolvation import render_si_microsolvation, render_si_ranking_occupancy
+        from .plotting.decomposition import render_decomposition
         plotted = render_figure1(tables, output / "figures", dpi, figure_config)
         si_plotted = render_si_microsolvation(tables, output / "figures", dpi, figure_config)
         ranking_plotted = render_si_ranking_occupancy(tables, output / "figures", dpi, figure_config)
+        decomposition_plotted = render_decomposition(tables, output / "figures", dpi, figure_config)
     checks = compare_run(root, outputs, plotted, si_plotted, ranking_plotted)
     checks.to_csv(output / "reproduction_checks.csv", index=False)
     passed = bool(checks.passed.all())

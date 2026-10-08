@@ -70,9 +70,9 @@ def compare_run(root: Path, outputs: dict[str, pd.DataFrame], plotted: Path | No
         compare_table(outputs["10_legacy_vs_transferred_audit"], continuum / "10_legacy_vs_transferred_audit.csv", ["method_id", "species_id"], ["transferred_minus_legacy_kcal_mol", "primary_policy_selected_file"]),
         compare_table(identity, continuum / "01_input_inventory.csv", ["calculation_id"], ["method_id", "analysis_role", "primary_include", "manifest_species_id", "local_path", "expected_sha256", "parsed_sha256", "hash_matches_manifest"]),
         compare_table(outputs["02_log_validation"], continuum / "02_log_validation.csv", ["calculation_id"], ["status", "is_usable"]),
-        # The fresh run appends source_calculation_failed to the three failed rows.
+        # `failures` is compared on all rows (no failed-source records remain in the release).
         compare_table(outputs["02_log_validation"], continuum / "02_log_validation.csv", ["calculation_id"], ["failures"], rows=_not_failed, label="failures, non-failed rows"),
-        # The published table leaves energies blank for the three failed rows.
+        # Energies are compared on usable rows (all records in the release are usable).
         compare_table(outputs["03_thermochemistry"], continuum / "03_thermochemistry.csv", ["calculation_id"],
                       ["electronic_energy_hartree", "thermal_gibbs_correction_hartree", "computed_gibbs_hartree", "printed_gibbs_hartree", "gibbs_residual_hartree"],
                       rows=lambda frame: frame.calculation_id.isin(usable), label="usable rows"),

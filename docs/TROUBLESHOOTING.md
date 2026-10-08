@@ -1,6 +1,6 @@
 # Troubleshooting
 
-**Repository not found:** run from the checkout or pass `atcgu --root /absolute/path/to/checkout COMMAND ...`. The package requires the accompanying data/configuration.
+**Repository not found:** run from the checkout or pass `acgut --root /absolute/path/to/checkout COMMAND ...`. The package requires the accompanying data/configuration.
 
 **Output directory already populated:** choose a new run name. This protects previous runs and the released data.
 

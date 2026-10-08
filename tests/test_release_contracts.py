@@ -34,7 +34,7 @@ def test_all_bundled_records_match_schema(root, tmp_path):
     jsonschema = pytest.importorskip("jsonschema")
     validator = jsonschema.Draft202012Validator(json.loads((root / "data/schemas/calculation_record.schema.json").read_text()))
     rows = list(csv.DictReader((root / "data/calculations/manifest.csv").open()))
-    assert len(rows) == 420
+    assert len(rows) == 417
     for row in rows:
         errors = [e.message for e in validator.iter_errors(json.loads((root / row["record_path"]).read_text()))]
         assert not errors, (row["calculation_id"], errors)
