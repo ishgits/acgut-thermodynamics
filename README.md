@@ -1,4 +1,4 @@
-# Nucleotide-formation thermochemistry: an open, verifiable study
+# Thermodynamics of nucleotide formation
 
 **Purpose.** This repository is the reproducible companion to our study of nucleotide-formation free energies across 21 canonical and noncanonical base families. It lets readers trace reported values to the released calculation records and recompute them in minutes. The manuscript and preprint are not public yet; a link will be added here when available.
 
