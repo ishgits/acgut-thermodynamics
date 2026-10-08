@@ -13,4 +13,4 @@ These files record checks that cannot be rerun from the public release, because 
 
 `../calculation_setup/microsolvation/original_input_manifest.csv` indexes the 12 water-start geometries that were submitted.
 
-See [Reviewing the results](../docs/REVIEW_GUIDE.md) to trace values and inspect the chemistry.
+See the [workflow](../docs/WORKFLOW.md) to reproduce results and trace values through the released records.

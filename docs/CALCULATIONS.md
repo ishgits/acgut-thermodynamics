@@ -1,6 +1,6 @@
 # Calculation setup
 
-This page records what was run. `calculation_setup/` is a static record of the exact inputs — it is not generated from this repo, and nothing here reruns the chemistry.
+This page documents the released calculation inputs. `calculation_setup/` is a static record; nothing here reruns the chemistry. Its Gaussian `.com` files are reconstructed rerun inputs made from the released optimized geometries, not copies of the original submitted inputs.
 
 ## What ran
 
@@ -11,7 +11,7 @@ This page records what was run. `calculation_setup/` is a static record of the e
 
 | Location | Contents |
 |---|---|
-| `gaussian/jobs/` | The `.com` inputs behind the 420 records (417 usable jobs; three failed sources were skipped and are documented in the records) |
+| `gaussian/jobs/` | Reconstructed `.com` rerun inputs for 417 usable records; three failed sources were skipped and are documented in the records |
 | `crest/jobs/` | CREST search inputs: seed geometries, sampling configs, run scripts |
 | `crest/refinement/` | DFT refinement starts selected from the CREST ensembles, with `refinement_manifest.json` recording the selection policy, conformer numbers, and relative energies |
 | `microsolvation/jobs/` | The two-water starting arrangements per family |
