@@ -23,6 +23,3 @@ si_microsolvation:
   height_cm: 17.8
   x_limits_kcal_mol: [-0.6, 13.4]
   display_family_order: [cytosine, adenine, imidazole, melamine, tap, guanine]
-si_microsolvation_ranking:
-  width_cm: 17.8
-  height_cm: 12.0

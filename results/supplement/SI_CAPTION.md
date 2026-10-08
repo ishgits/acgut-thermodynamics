@@ -4,9 +4,9 @@
 
 **SI Figure. Two-water placement sensitivity across entropy treatments on the Figure 1C fixed-reference scale.** Scores are B3LYP/6-311++G(2df,2p), aqueous IEFPCM quantities in kcal mol⁻¹. In every treatment the displayed score subtracts the same harmonic continuum-adenine nucleotide-minus-base quantity and two harmonic isolated-water Gibbs energies, then applies the same −8.539633 kcal mol⁻¹ standard-state/water-reservoir correction used in Figure 1C. Only each cluster and its corresponding base receive the named entropy treatment. Each of the four panels joins the two sampled placements per family: circles denote splitA and squares splitB. Connecting lines compare two optimized sampled placements, not statistical uncertainty or a converged hydration ensemble. The per-family minima keep the selected order C < A < imidazole < melamine < TAP < G under every treatment. Adenine is not forced to zero in any panel.
 
-## Rank-occupancy figure
+## Placement-choice sensitivity (text point)
 
-**SI Figure. Rank occupancy over enumerated two-water placement choices.** Each treatment panel counts, for every family and rank, how many of the 64 splitA/splitB choice vectors place that family at ranks 1–6. Cell color and labels use one shared count scale across all four panels. Black outlines mark the rank produced when the lower-G sampled placement is selected independently for every family. These are counts over enumerated choices—not probabilities, populations, confidence levels or equally likely physical states. The ranking comparison retains the treatment-matched continuum comparator used for `pairwise_retained`; the fixed display zero does not change any combination's order.
+Enumerating all 64 splitA/splitB placement choices per treatment (`09_placement_combinations.csv`, counts in `10_rank_occupancy.csv`) shows the selected order is stable while the middle ranks are placement-sensitive: only 32–36 of the 64 vectors put adenine and cytosine in the lowest two ranks. This separates robustness of the selected ordering from uncertainty associated with the limited placement sample; no figure is drawn for it.
 
 ## Summary
 
@@ -26,6 +26,6 @@ The selected order is stable under all four entropy treatments. The occupancy pa
 - Selected-score shifts: `08_selected_fixed_reference_shifts.csv`
 - All 256 placement/treatment combinations: `09_placement_combinations.csv` (`choice_bits` lists adenine, cytosine, imidazole, melamine, TAP, guanine; 0 = splitA, 1 = splitB)
 - Rank counts: `10_rank_occupancy.csv`
-- Plotted data: `results/supplement/si_microsolvation_plotted_data.csv` and `si_microsolvation_ranking_plotted_data.csv`
+- Plotted data: `results/supplement/si_microsolvation_plotted_data.csv`
 
 The unequal-sampling historical-basin analysis is not part of this release.

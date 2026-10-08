@@ -1,7 +1,7 @@
-"""Re-render the SI microsolvation figures exactly from a reproduction's tables.
+"""Re-render the SI entropy-treatment figure exactly from a reproduction's tables.
 
 Usage:
-    python figure_scripts/si_microsolvation.py --tables outputs/my_review/tables --out my_figures/
+    python figure_scripts/si_entropy.py --tables outputs/my_review/tables --out my_figures/
 """
 from pathlib import Path
 import sys
@@ -12,7 +12,7 @@ sys.path.insert(0, str(ROOT / "src"))
 import argparse
 import yaml
 
-from atcgu.plotting.si_microsolvation import render_si_microsolvation, render_si_ranking_occupancy
+from atcgu.plotting.si_microsolvation import render_si_microsolvation
 
 
 def main() -> None:
@@ -28,7 +28,6 @@ def main() -> None:
     if not (tables / "si").is_dir():
         p.exit(1, "tables/si/ not found; run acgut reproduce first\n")
     print("wrote", render_si_microsolvation(tables, args.out.resolve(), dpi, config))
-    print("wrote", render_si_ranking_occupancy(tables, args.out.resolve(), dpi, config))
 
 
 if __name__ == "__main__":

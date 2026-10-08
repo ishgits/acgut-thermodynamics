@@ -40,16 +40,15 @@ def run(root: Path, output: Path, *, figures: bool = True, dpi: int | None = Non
     panel_a = figure_config["figure1"]
     rankings = outputs["09_relative_rankings"]
     rankings.loc[rankings.analysis_id.eq(panel_a["panel_a_analysis_id"]) & rankings.reaction_id.eq(panel_a["reaction_id"])].to_csv(tables / "figure1_panel_a.csv", index=False)
-    plotted = si_plotted = ranking_plotted = decomposition_plotted = None
+    plotted = si_plotted = decomposition_plotted = None
     if figures:
         from .plotting.figure1 import render_figure1
-        from .plotting.si_microsolvation import render_si_microsolvation, render_si_ranking_occupancy
+        from .plotting.si_microsolvation import render_si_microsolvation
         from .plotting.decomposition import render_decomposition
         plotted = render_figure1(tables, output / "figures", dpi, figure_config)
         si_plotted = render_si_microsolvation(tables, output / "figures", dpi, figure_config)
-        ranking_plotted = render_si_ranking_occupancy(tables, output / "figures", dpi, figure_config)
         decomposition_plotted = render_decomposition(tables, output / "figures", dpi, figure_config)
-    checks = compare_run(root, outputs, plotted, si_plotted, ranking_plotted)
+    checks = compare_run(root, outputs, plotted, si_plotted)
     checks.to_csv(output / "reproduction_checks.csv", index=False)
     passed = bool(checks.passed.all())
     hashes = {str(p.relative_to(root)): digest(p) for folder in [root / "src/atcgu", root / "config"]
@@ -82,7 +81,7 @@ def run(root: Path, output: Path, *, figures: bool = True, dpi: int | None = Non
     if figures:
         lines += ["- Figure 1: `figures/figure1.png` (plotted points: `figures/figure1_plotted_data.csv`)",
                   "- SI fixed-reference figure: `figures/si_microsolvation_sensitivity.png` (plotted points: `figures/si_microsolvation_plotted_data.csv`)",
-                  "- SI rank occupancy: `figures/si_microsolvation_ranking_occupancy.png` (plotted counts: `figures/si_microsolvation_ranking_plotted_data.csv`)"]
+                  "- Decomposition figure: `figures/decomposition.png`"]
     else:
         lines += ["- Figures were skipped (`--no-figures`); every table comparison above still ran."]
     lines += [f"- `{name}`" for name in KEY_TABLES]

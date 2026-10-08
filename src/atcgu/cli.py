@@ -20,7 +20,7 @@ def main(argv=None) -> int:
     r = sub.add_parser("reproduce", help="Recompute the continuum analysis, Figure 1 and the SI sensitivity, and compare with the published results")
     r.add_argument("--out", required=True, type=Path); r.add_argument("--no-figures", action="store_true")
     r.add_argument("--dpi", type=int, help="PNG resolution; default figures.yaml png_dpi")
-    r = sub.add_parser("plot", help="Render Figure 1, both SI figures and the decomposition figure from a reproduction's tables")
+    r = sub.add_parser("plot", help="Render Figure 1, the SI entropy figure and the decomposition figure from a reproduction's tables")
     r.add_argument("--tables", type=Path, required=True); r.add_argument("--out", type=Path, required=True)
     r.add_argument("--dpi", type=int, help="PNG resolution; default figures.yaml png_dpi")
     v = sub.add_parser("validate", help="Check calculation records, source structures and sampling checksums")
@@ -37,7 +37,7 @@ def main(argv=None) -> int:
         elif args.command == "plot":
             import yaml
             from .plotting.figure1 import render_figure1
-            from .plotting.si_microsolvation import render_si_microsolvation, render_si_ranking_occupancy
+            from .plotting.si_microsolvation import render_si_microsolvation
             from .plotting.decomposition import render_decomposition
             fresh(out)
             config = yaml.safe_load((root / "config/figures.yaml").read_text())
@@ -45,7 +45,6 @@ def main(argv=None) -> int:
             render_figure1(args.tables.resolve(), out, dpi, config)
             if (args.tables / "si").is_dir():
                 render_si_microsolvation(args.tables.resolve(), out, dpi, config)
-                render_si_ranking_occupancy(args.tables.resolve(), out, dpi, config)
             render_decomposition(args.tables.resolve(), out, dpi, config)
         elif args.command == "validate":
             from .validation.inventory import validate

@@ -47,7 +47,7 @@ def _not_failed(frame: pd.DataFrame) -> pd.Series:
 
 
 def compare_run(root: Path, outputs: dict[str, pd.DataFrame], plotted: Path | None = None,
-                si_plotted: Path | None = None, ranking_plotted: Path | None = None) -> pd.DataFrame:
+                si_plotted: Path | None = None) -> pd.DataFrame:
     """Every table comparison runs with or without figures; figures add plotted-point checks."""
     continuum = root / "data/published/continuum"
     micro = root / "data/published/figure1"
@@ -110,8 +110,4 @@ def compare_run(root: Path, outputs: dict[str, pd.DataFrame], plotted: Path | No
         checks.append(compare_table(pd.read_csv(si_plotted), root / "results/supplement/si_microsolvation_plotted_data.csv",
                                     ["panel", "family", "treatment", "placement", "series"],
                                     ["selected_for_family", "value"], KCAL_TOLERANCE))
-    if ranking_plotted:
-        checks.append(compare_table(pd.read_csv(ranking_plotted), root / "results/supplement/si_microsolvation_ranking_plotted_data.csv",
-                                    ["treatment", "family", "rank"],
-                                    ["combination_count", "selected_lower_g_rank", "is_selected_lower_g_rank"]))
     return pd.DataFrame(checks)

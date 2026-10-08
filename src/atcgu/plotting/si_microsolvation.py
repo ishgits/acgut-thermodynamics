@@ -8,7 +8,6 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
-from matplotlib.patches import Patch, Rectangle
 import numpy as np
 import pandas as pd
 
@@ -128,47 +127,3 @@ def render_si_microsolvation(tables: Path, output: Path, dpi: int, config: dict)
     return plotted
 
 
-def render_si_ranking_occupancy(tables: Path, output: Path, dpi: int, config: dict) -> Path:
-    """Render counts over the 64 enumerated placement choices for each treatment."""
-    figure = config["si_microsolvation_ranking"]
-    width, height = float(figure["width_cm"]), float(figure["height_cm"])
-    order = _display_order(config)
-    occupancy = pd.read_csv(tables / "si/10_rank_occupancy.csv")
-    if len(occupancy) != 144 or not occupancy.groupby(["treatment", "family"]).combination_count.sum().eq(64).all():
-        raise ValueError("Ranking figure requires 64 rank assignments for every family/treatment")
-    output.mkdir(parents=True, exist_ok=True)
-    fig, axes = plt.subplots(2, 2, figsize=(width * CM, height * CM), sharex=True, sharey=True)
-    fig.subplots_adjust(left=0.14, right=0.89, bottom=0.12, top=0.91, wspace=0.18, hspace=0.28)
-    vmax = int(occupancy.combination_count.max())
-    image = None
-    for ax, (treatment, label, _, _) in zip(axes.flat, TREATMENTS):
-        block = occupancy.loc[occupancy.treatment.eq(treatment)]
-        matrix = block.pivot(index="family", columns="rank", values="combination_count").loc[order, range(1, 7)]
-        image = ax.imshow(matrix, cmap="Blues", vmin=0, vmax=vmax, aspect="auto")
-        for row_i, family in enumerate(order):
-            selected_rank = int(block.loc[block.family.eq(family), "selected_lower_g_rank"].iloc[0])
-            ax.add_patch(Rectangle((selected_rank - 1.5, row_i - 0.5), 1, 1, fill=False,
-                                   edgecolor="#111111", linewidth=1.4))
-            for col_i, count in enumerate(matrix.loc[family]):
-                colour = "white" if count > vmax * 0.55 else "#1a1a1a"
-                ax.text(col_i, row_i, str(int(count)), ha="center", va="center", fontsize=6.3, color=colour)
-        ax.set_title(label, loc="left", fontweight="bold")
-        ax.set_xticks(range(6), range(1, 7))
-        ax.set_yticks(range(6), [NAMES.get(f, f.capitalize()) for f in order])
-        style_labels(ax, order)
-        ax.tick_params(axis="y", length=0)
-        ax.set_xlabel("Rank")
-    fig.text(0.015, 0.53, "Family", rotation=90, va="center", fontsize=7)
-    cax = fig.add_axes([0.915, 0.18, 0.018, 0.62])
-    cbar = fig.colorbar(image, cax=cax)
-    cbar.set_label("Count among 64 placement choices")
-    fig.legend(handles=[Patch(facecolor="none", edgecolor="#111111", linewidth=1.4,
-                              label="Rank from lower-G placement for every family")],
-               loc="upper center", bbox_to_anchor=(0.52, 0.985), frameon=False)
-    if not np.allclose(fig.get_size_inches() * 2.54, [width, height]):
-        raise ValueError("Exported ranking figure size differs from configured dimensions")
-    save_figure(fig, output / "si_microsolvation_ranking_occupancy", dpi)
-    plt.close(fig)
-    plotted = output / "si_microsolvation_ranking_plotted_data.csv"
-    occupancy.to_csv(plotted, index=False)
-    return plotted
