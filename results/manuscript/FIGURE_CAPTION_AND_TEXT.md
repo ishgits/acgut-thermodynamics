@@ -10,7 +10,7 @@ Selecting the lower of the two primary hydrated placements gives cytosine, adeni
 
 ## Placement details
 
-Each start places one water at a phosphate OH and one at a base acceptor. splitA/splitB identify starting arrangements; their targets are listed below. Construction and the unconstrained optimization protocol are described in [Methods](../../docs/METHODS.md).
+Each start places one water at a phosphate OH and one at a base acceptor. splitA/splitB identify starting arrangements; their targets are listed below. Construction and the unconstrained optimization protocol are summarized in the [calculation setup](../../docs/CALCULATIONS.md). A manuscript link will be added when it is public.
 
 | Family | splitA base target | splitB base target | Phosphate side |
 |---|---|---|---|

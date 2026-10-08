@@ -10,10 +10,10 @@ sampling inputs and calculation routes define the adaptations here. The study
 is not represented as having executed the upstream release unchanged.
 
 Frozen starting structures acquired from PubChem retain PubChem metadata and
-compound identifiers. Source/CID mappings and file hashes are provided under
-`data/source/`. Some source URLs are reconstructed API locators from embedded
-PubChem CIDs where the original acquisition CSV lacked a row; they do not establish
-a new retrieval date or guarantee that the current response matches frozen bytes.
+compound identifiers in their SDF files. `data/source/manifest.csv` identifies
+the source type and file hash for each structure. A manuscript link and its
+source/CID table will be added when public. Embedded CIDs do not establish
+a new retrieval date or guarantee that current PubChem responses match frozen bytes.
 
 The runtime uses NumPy, pandas, Matplotlib and PyYAML. Molecule construction uses
 optional RDKit. External calculations use Gaussian 16 and CREST/GFN2-xTB; none

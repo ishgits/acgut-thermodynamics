@@ -1,32 +1,39 @@
 # Workflow
 
-Start in the repository folder. Reproducing the included results needs Python 3.12 and the bundled data; it does not require running new chemistry calculations.
+This is the whole user workflow: reproduce, verify, then learn by following the derivation. Everything starts from a checkout of this repository.
 
-## Reproduce the results
+## 1. Reproduce the results
 
-1. **Set up Python** (once):
+Python 3.12, bundled data only — no chemistry software needed.
 
-   ```bash
-   python3.12 -m venv .venv
-   source .venv/bin/activate
-   python -m pip install -r environments/reproduction.txt
-   python -m pip install --no-deps -e .
-   ```
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r environments/reproduction.txt
+python -m pip install --no-deps -e .
+atcgu reproduce --out outputs/first_run
+```
 
-2. **Run the analysis:**
+## 2. Check the run
 
-   ```bash
-   atcgu reproduce --out outputs/first_run
-   ```
+Open `outputs/first_run/VALIDATION_REPORT.md`. It should say **28 of 28 published-result comparisons passed** — every recomputed table matched against `data/published/`. That report is the verification; if a check fails, see [Troubleshooting](TROUBLESHOOTING.md). Use a fresh directory under `outputs/` for each run.
 
-3. **Check the run.** Open `outputs/first_run/VALIDATION_REPORT.md`. Its first result should say **28 of 28 published-result comparisons passed**. If the command stops or a check fails, see [Troubleshooting](TROUBLESHOOTING.md). Use a new name under `outputs/` for each run; existing runs are not overwritten.
+For an independent second opinion: `atcgu audit --out outputs/audit_01` re-derives the selections, energies, ranks, and plotted points using only the Python standard library (no project code). `atcgu validate --out outputs/records_01` checks the calculation records, source structures, and sampling checksums.
 
-4. **Explore the results.** Open `outputs/first_run/figures/` for Figure 1, the SI fixed-reference placement figure and the separate rank-occupancy figure. In `outputs/first_run/tables/`, start with `09_relative_rankings.csv` for the main comparison, `micro_06_primary_selected_candidates.csv` for the water-placement choices, `si/05_fixed_reference_placement_scores.csv` for all displayed endpoints and `si/thermochemical_summary.csv` for the sensitivity summary. The report links to the other useful tables.
+## 3. Follow the derivation
 
-5. **Follow one result back to its input.** For a guided walkthrough, install Jupyter with `python -m pip install '.[notebooks]'` if needed, then run `jupyter lab notebooks/01_reproduce_and_review.ipynb` and work through the cells.
+Install Jupyter (`python -m pip install '.[notebooks]'`) and open `notebooks/01_reproduce_and_review.ipynb`. It walks the analysis the way the study was actually done:
 
-## Go further
+1. **The data** — what the 420 records contain and what each field means
+2. **Baseline reaction energies** — the net nucleotide-formation reaction across all 21 families
+3. **Method/solvation sensitivity** — ten families under four computational treatments
+4. **Water placement** — the two-water test for the six leading families
+5. **Decomposition** — the net reaction split into nucleoside formation and phosphorylation
 
-- For extra checks, run `atcgu audit --out outputs/audit_01` and `atcgu validate --out outputs/records_01`. Each command needs a new output folder.
-- To redraw the figures from an existing run's tables, run `atcgu plot --tables outputs/first_run/tables --out outputs/plots_01`.
-- To add new calculations, follow [Adding a molecule](EXTENDING.md): prepare and run the external jobs, extract and check their results, add the checked records to the repository, then run `atcgu analyze --out outputs/new_analysis`. [Calculation setup](CALCULATIONS.md) gives the job-preparation steps.
+The notebook is a guided review. It reads a raw calculation record, recomputes baseline reaction energies from the published selected-species table, and examines published intermediate tables for the later steps. For the full derivation from records, run `atcgu reproduce`; its tables and the [data dictionary](DATA_DICTIONARY.md) let you trace individual results.
+
+## 4. See how the inputs were made
+
+`calculation_setup/` holds CREST and water-placement inputs plus Gaussian rerun inputs reconstructed from optimized geometries. The two programmatic construction steps are scripted and readable: `src/atcgu/building/molecules.py` (+ `config/construction.csv`) built the 20 non-PubChem starting structures, and `src/atcgu/sampling/water.py` built the two-water starting arrangements. [Calculation setup](CALCULATIONS.md) describes the layout.
+
+That's the entire workflow. There is deliberately no machinery here for extending the study to new molecules — this repo documents and verifies the published analysis; extending it is future work.

@@ -7,7 +7,6 @@ import pandas as pd
 import pytest
 
 from atcgu.analysis.workflow import run_continuum
-from atcgu.extraction.workflow import extract
 from atcgu.paths import check_output
 from atcgu.runner import run
 
@@ -31,7 +30,7 @@ def test_shrunken_family_panel_fails_before_tables(root, tmp_path, family, messa
     assert not any(tables.iterdir())
 
 
-def test_all_records_and_fresh_extraction_match_schema(root, water_log, tmp_path):
+def test_all_bundled_records_match_schema(root, tmp_path):
     jsonschema = pytest.importorskip("jsonschema")
     validator = jsonschema.Draft202012Validator(json.loads((root / "data/schemas/calculation_record.schema.json").read_text()))
     rows = list(csv.DictReader((root / "data/calculations/manifest.csv").open()))
@@ -39,19 +38,8 @@ def test_all_records_and_fresh_extraction_match_schema(root, water_log, tmp_path
     for row in rows:
         errors = [e.message for e in validator.iter_errors(json.loads((root / row["record_path"]).read_text()))]
         assert not errors, (row["calculation_id"], errors)
-    output = extract([water_log], tmp_path / "extracted")
-    record = json.loads(next(output.rglob("record.json")).read_text())
-    assert not list(validator.iter_errors(record))
 
 
-def test_extraction_writes_manifest_rows_in_release_shape(root, water_log, tmp_path):
-    output = extract([water_log], tmp_path / "extracted")
-    with (root / "data/calculations/manifest.csv").open() as h:
-        expected = next(csv.reader(h))
-    with (output / "manifest_rows.csv").open() as h:
-        rows = list(csv.DictReader(h))
-    assert list(rows[0]) == expected and len(rows) == 1
-    assert (output / rows[0]["record_path"]).is_file()
 
 
 def test_output_path_guard(root, tmp_path):

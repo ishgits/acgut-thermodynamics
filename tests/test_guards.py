@@ -7,8 +7,6 @@ from atcgu.records import read_bundle, within
 from atcgu.validation.records import check_record
 from atcgu.analysis.reactions import build_reactions
 from atcgu.analysis.microsolvation import run_primary
-from atcgu.sampling.selection import read_multi_xyz
-from atcgu.building.gaussian import input_text
 
 
 def record(root):
@@ -60,25 +58,3 @@ def test_missing_primary_placement_stops_comparison(root, tmp_path):
     df.to_csv(config / "microsolvation_candidates.csv", index=False)
     with pytest.raises(ValueError, match="twelve"):
         run_primary(tmp_path, tmp_path, pd.DataFrame())
-
-
-def test_truncated_ensemble_rejected(tmp_path):
-    p = tmp_path / "ensemble.xyz"; p.write_text("3\n-10.0\nO 0 0 0\nH 1 0 0\n")
-    with pytest.raises(ValueError, match="Incomplete"):
-        read_multi_xyz(p)
-
-
-def test_input_names_and_coordinates_checked():
-    with pytest.raises(ValueError, match="basename"):
-        input_text("../escape", [8], [[0, 0, 0]], route_opt="# opt", route_freq="# freq geom=allchk")
-    with pytest.raises(ValueError, match="finite"):
-        input_text("safe", [8], [[float("nan"), 0, 0]], route_opt="# opt", route_freq="# freq geom=allchk")
-
-
-@pytest.mark.parametrize("route", [
-    "# freq temperature=298Geom=AllChk Guess=Read",
-    "# freq temperature=298 geom=allchkguess=read",
-])
-def test_input_rejects_joined_frequency_keywords(route):
-    with pytest.raises(ValueError, match="Geom=AllChk"):
-        input_text("safe", [8], [[0, 0, 0]], route_opt="# opt", route_freq=route)
