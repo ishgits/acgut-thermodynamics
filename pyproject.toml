@@ -16,7 +16,7 @@ dev = ["pytest>=8.4,<9", "jsonschema>=4.23,<5", "nbmake>=1.5,<2"]
 notebooks = ["jupyterlab>=4,<5"]
 
 [project.scripts]
-atcgu = "atcgu.cli:main"
+acgut = "atcgu.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

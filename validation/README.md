@@ -1,6 +1,6 @@
 # Validation evidence
 
-These files record checks that cannot be rerun from the public release, because the Gaussian and CREST logs are not distributed. Everything else (`atcgu reproduce`, `atcgu audit`, `atcgu validate`, `pytest`) regenerates its own report in a fresh `outputs/` directory.
+These files record checks that cannot be rerun from the public release, because the Gaussian and CREST logs are not distributed. Everything else (`acgut reproduce`, `acgut audit`, `acgut validate`, `pytest`) regenerates its own report in a fresh `outputs/` directory.
 
 | File | Coverage | Result |
 |---|---:|---|

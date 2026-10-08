@@ -168,11 +168,6 @@
     "memory": "6GB"
   },
   {
-    "calculation_id": "calc_d3ed330e1379286a",
-    "status": "not_prepared",
-    "reason": "failed source or no optimized geometry"
-  },
-  {
     "calculation_id": "calc_d131565cc15c8f44",
     "status": "prepared",
     "input_sha256": "374b4b11291b7cf2f22caef1cd28e52a656da45e010f3f911ca8bbf872bf41c1",
@@ -675,11 +670,6 @@
     "temperature_k": 298.0,
     "cpus": 8,
     "memory": "6GB"
-  },
-  {
-    "calculation_id": "calc_b1a6defdb4efbf2c",
-    "status": "not_prepared",
-    "reason": "failed source or no optimized geometry"
   },
   {
     "calculation_id": "calc_261fd8f740147344",
@@ -3308,11 +3298,6 @@
     "temperature_k": 298.0,
     "cpus": 8,
     "memory": "6GB"
-  },
-  {
-    "calculation_id": "calc_a79297b7e999a273",
-    "status": "not_prepared",
-    "reason": "failed source or no optimized geometry"
   },
   {
     "calculation_id": "calc_f79711e8c20fd629",

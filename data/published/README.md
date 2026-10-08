@@ -1,6 +1,6 @@
 # Published results
 
-Each table here is a published result. `atcgu reproduce` regenerates it and compares the fresh values by scientific key (`src/atcgu/validation/regression.py`). Hartree quantities normally use a 1e-9 tolerance; displayed kcal/mol coordinates and shifts use 1e-6. Categorical fields (IDs, choices, orders, ranks and flags) must match exactly. `atcgu audit` independently re-derives the selections, reaction quantities, Figure 1 coordinates, fixed-reference SI scores, 64-vector rankings and occupancy counts with the standard library.
+Each table here is a published result. `acgut reproduce` regenerates it and compares the fresh values by scientific key (`src/atcgu/validation/regression.py`). Hartree quantities normally use a 1e-9 tolerance; displayed kcal/mol coordinates and shifts use 1e-6. Categorical fields (IDs, choices, orders, ranks and flags) must match exactly. `acgut audit` independently re-derives the selections, reaction quantities, Figure 1 coordinates, fixed-reference SI scores, 64-vector rankings and occupancy counts with the standard library.
 
 Table numbers follow the analysis pipeline; gaps are intentional.
 
@@ -10,9 +10,9 @@ Generator: `atcgu.analysis.workflow.run_continuum` (selection in `analysis/selec
 
 | Table | Rows | Compared by | Columns compared | Role |
 |---|---|---|---|---|
-| `01_input_inventory.csv` | 408 | calculation_id | method_id, analysis_role, primary_include, manifest_species_id, local_path, expected/parsed SHA, hash_matches_manifest | Every configured continuum record |
-| `02_log_validation.csv` | 408 | calculation_id | status, is_usable; `failures` on non-failed rows only (a fresh run appends `source_calculation_failed` to the three failed rows) | Validation outcome per record |
-| `03_thermochemistry.csv` | 408 | calculation_id | E, thermal G correction, computed G, printed G, residual; usable rows only (energies are blank for the three failed rows) | Harmonic energies |
+| `01_input_inventory.csv` | 405 | calculation_id | method_id, analysis_role, primary_include, manifest_species_id, local_path, expected/parsed SHA, hash_matches_manifest | Every configured continuum record |
+| `02_log_validation.csv` | 405 | calculation_id | status, is_usable, failures | Validation outcome per record |
+| `03_thermochemistry.csv` | 405 | calculation_id | E, thermal G correction, computed G, printed G, residual | Harmonic energies |
 | `04_analysis_candidates.csv` | 503 | analysis_id, calculation_id | candidate rank, selected flag, computed G | All candidates per analysis |
 | `05_selected_species.csv` | 206 | analysis_id, species_id | calculation_id, computed G, candidate count | Selected structure per species |
 | `06_sampling_coverage.csv` | 81 | analysis_id, reaction_family_id | all candidate counts, required count, complete_required_coverage | Coverage per family |
