@@ -31,7 +31,7 @@ python -m pip install --no-deps -e .
 acgut reproduce --out outputs/my_review
 ```
 
-Then open `outputs/my_review/VALIDATION_REPORT.md`: 28 comparisons between the recomputed tables and the published ones, all of which must pass. That report *is* the verification — there is deliberately no separate integrity-checking machinery in this repo; git tracks the files, and the reproduce report checks the numbers.
+Then open `outputs/my_review/VALIDATION_REPORT.md`: 27 comparisons between the recomputed tables and the published ones, all of which must pass. That report *is* the verification — there is deliberately no separate integrity-checking machinery in this repo; git tracks the files, and the reproduce report checks the numbers.
 
 Next, open `notebooks/01_reproduce_and_review.ipynb`. To run it interactively, install Jupyter with `python -m pip install '.[notebooks]'`. It walks through the evidence and headline results:
 
