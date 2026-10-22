@@ -30,3 +30,30 @@ Two construction steps were scripted rather than hand-built:
 ## Records
 
 Every calculation's inputs and outputs are bundled in `data/calculations/<id>/`: `record.json` (energies, method, state, checksums), `optimized.xyz`, `frequencies.csv`, and `starting.xyz`. The notebook starts from these bundles — no Gaussian or CREST needed.
+
+## Released candidate verification
+
+```bash
+acgut validate --out outputs/candidate_review
+python - <<'PYCODE'
+import pandas as pd
+r = pd.read_csv("outputs/candidate_review/sampling_selection_checks.csv")
+print(r[r.sampling_run_id.isin(["adenine", "adenine_ribose_phosphate"])].to_string(index=False))
+PYCODE
+```
+
+The pure selector was recovered from Git commit `4d2957ac3023deea7c9bc320fc53f7acca583111`; the preparation adapter was deliberately not restored. `config/sampling.csv` supplies case-sensitive sampling run IDs (including `tap_C5link`), seed/ensemble paths and moieties. `config/study.json` supplies policy. The verifier writes one row per run, then aggregates failures without changing any manifest.
+
+Heavy-atom RMSD excludes H, centers corresponding atoms and uses proper-rotation Kabsch alignment without symmetry permutations. Rg is unweighted. Duplicate means RMSD strictly below 0.5 Å; equality survives. Energy selection keeps file order, stops at the first frame above 3 kcal/mol, and keeps at most five distinct frames. Rg selection admits energies ≤6 kcal/mol, uses three equal-width bins spanning eligible minimum Rg to max(eligible maximum Rg, seed Rg), adds 1e-9 Å to the final edge, includes lower/excludes upper edges, and retains at most two per bin with deduplication across all previous bins. The recovered `np.argsort` energy tie behavior depends on NumPy; use `environments/reproduction.txt` (NumPy 2.3.5), rather than inventing a new tie rule. Final selected frames are energy-ordered with the recovered stable Python sort.
+
+Released preparation candidate sets contain `dft_seed` plus selected CREST frames and **no seed-similarity filter**. All 66 manifests reproduce using 627.5094740631 kcal/mol per hartree. This establishes candidate IDs/order, metrics, policy, hashes and adjacent-energy inversions, not executed jobs or byte-identical Gaussian inputs. Actual calculation evidence is the calculation-record inventory.
+
+Historical campaign dispatch used 627.509 and an additional step:
+
+```text
+survivors = selected CREST frames with RMSD(frame, seed) >= 0.5 Å
+if survivors is empty: record "existing"; create no new jobs
+else: campaign starts = [dft_seed] + survivors
+```
+
+That historical replay matched 11 pilot and 12 follow-up species. Applying it counterfactually to all 66 released ensembles changes 31 candidate lists; this does not establish incorrect executed calculations. Conversion alone changes no selected IDs but can change relative energies by 4.43e-6 kcal/mol. The 420 historical logs included three failures; 417 valid calculation records are released.
