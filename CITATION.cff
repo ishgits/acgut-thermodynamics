@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "Thermodynamics of nucleotide formation"
+abstract: "Reproducible companion to a study of nucleotide-formation free energies across 21 canonical and noncanonical base families: 417 calculation records, the analysis code that turns them into the published tables and figures, and a guided notebook. Companion manuscript: 'Energetics of nucleotide formation suggest a preference for adenine and cytosine, but not the canonical genetic alphabet as a whole' (PNAS, submitted)."
+authors:
+  - family-names: "Madan"
+    given-names: "Ishaan"
+    affiliation: "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University"
+version: "1.0.0"
+license: CC-BY-4.0
+repository-code: "https://github.com/ishgits/acgut-thermodynamics"
+keywords:
+  - prebiotic chemistry
+  - nucleotide formation
+  - computational chemistry
+  - thermodynamics
+  - origins of life
+  - reproducibility

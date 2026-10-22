@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "atcgu-study"
-version = "0.1.0"
+version = "1.0.0"
 description = "Reproducible neutral nucleotide thermochemistry and primary Figure 1"
 readme = "README.md"
 requires-python = ">=3.11"
