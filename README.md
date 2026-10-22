@@ -61,14 +61,13 @@ Each run needs a fresh output directory. Add `--no-figures` to `reproduce` to sk
 | `notebooks/` | Guided review of the records, selected calculations, and headline results |
 | `data/calculations/` | 417 calculation records (405 continuum, 12 two-water clusters): `record.json` + `optimized.xyz` + `frequencies.csv` + `starting.xyz` per record |
 | `data/source/` | 66 starting structures and a source manifest (`pubchem` CIDs are embedded in the SDF files; `constructed` recipes are in the construction script) |
-| `data/published/` | The published tables: `continuum/`, `figure1/`, `si_microsolvation/` |
+| `data/published/` | The published tables: `continuum/`, `figure1/`, `si_microsolvation/`, `supplement/` |
 | `data/sampling/` | CREST sampling inputs and ensembles behind the conformer selection |
 | `calculation_setup/` | CREST and water-placement inputs, plus Gaussian rerun inputs generated from optimized geometries |
 | `config/` | Species, methods, reaction families, selection rules, figure conventions |
 | `src/atcgu/` | The analysis, validation, and plotting code |
 | `src/atcgu/building/molecules.py` | How the 20 programmatically constructed starting structures were built (with `config/construction.csv`) |
 | `src/atcgu/sampling/water.py` | How the two-water microsolvation starting structures were constructed |
-| `results/` | Rendered Figure 1, the SI entropy figure, and plotted data |
 | `docs/` | [Workflow](docs/WORKFLOW.md), [data dictionary](docs/DATA_DICTIONARY.md), [calculation setup](docs/CALCULATIONS.md), [troubleshooting](docs/TROUBLESHOOTING.md) |
 
 ## Notes
