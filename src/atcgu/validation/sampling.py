@@ -43,8 +43,10 @@ def check_run(root, row, study):
         return s.select_rg_stratified(confs, rel, mask, pol, s.radius_of_gyration(xyz, mask), cutoff)
     keep = select(relative)
     ids = ["dft_seed"] + [f"conf{k+1}" for k in keep]
-    # Preserve sampling run ID casing; it differs from species IDs for linkage families.
-    mpath = root / "calculation_setup/crest/refinement" / row["sampling_run_id"] / "refinement_manifest.json"
+    # Refinement folders on disk use the lowercase run ID; sampling.csv preserves
+    # linkage casing (Clink/Nlink/C5link) in the run ID itself, so lower it here --
+    # a case-sensitive filesystem (Linux CI) will not resolve the mixed-case name.
+    mpath = root / "calculation_setup/crest/refinement" / row["sampling_run_id"].lower() / "refinement_manifest.json"
     manifest = json.loads(mpath.read_text())
     saved = [c["candidate"] for c in manifest["candidates"]]
     for candidate in manifest["candidates"]:
