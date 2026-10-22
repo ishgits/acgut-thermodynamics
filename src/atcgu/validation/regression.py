@@ -107,7 +107,7 @@ def compare_run(root: Path, outputs: dict[str, pd.DataFrame], plotted: Path | No
     if plotted:
         checks.append(compare_table(pd.read_csv(plotted), micro / "figure1_plotted_data.csv", ["panel", "family", "series"], ["value"], KCAL_TOLERANCE))
     if si_plotted:
-        checks.append(compare_table(pd.read_csv(si_plotted), root / "results/supplement/si_microsolvation_plotted_data.csv",
+        checks.append(compare_table(pd.read_csv(si_plotted), root / "data/published/supplement/si_microsolvation_plotted_data.csv",
                                     ["panel", "family", "treatment", "placement", "series"],
                                     ["selected_for_family", "value"], KCAL_TOLERANCE))
     return pd.DataFrame(checks)

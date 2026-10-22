@@ -39,7 +39,13 @@ Generator: `atcgu.analysis.microsolvation.run_primary`; plotted points from `atc
 
 ## `si_microsolvation/`: SI sensitivity
 
-Generator: `atcgu.analysis.microsolvation_si.run_si` (treatments in `analysis/thermochemistry_sensitivity.py`). Both SI plotted-data sets are published under `results/supplement/` and compared in a full run.
+Generator: `atcgu.analysis.microsolvation_si.run_si` (treatments in `analysis/thermochemistry_sensitivity.py`). The SI plotted-data set is published under `supplement/` (below) and compared in a full run.
+
+## `supplement/`: SI plotted data
+
+| Table | Rows | Compared by | Columns compared | Role |
+|---|---|---|---|---|
+| `si_microsolvation_plotted_data.csv` | 48 | panel, family, treatment, placement, series | selected_for_family, value (full run only) | Every plotted point of the SI microsolvation sensitivity figure |
 
 | Table | Rows | Compared by | Columns compared | Role |
 |---|---|---|---|---|
