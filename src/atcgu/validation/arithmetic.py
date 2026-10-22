@@ -194,7 +194,8 @@ def audit(root: Path, output: Path) -> Path:
         w = csv.DictWriter(h, fieldnames=list(checks[0])); w.writeheader(); w.writerows(checks)
     summary = {"checks": len(checks), "failed_checks": sum(not r["passed"] for r in checks), "selected_species": len(selected), "reaction_quantities": len(deltas), "figure_points": figure_points, "si_placement_vectors": vectors,
                "maximum_numeric_error": max(r["absolute_error"] or 0 for r in checks),
-               "scope": "arithmetic, cohort selection, published Figure 1, fixed-reference SI scores, placement vectors and rank occupancy"}
+               "scope": "arithmetic, cohort selection, published Figure 1, fixed-reference SI scores, placement vectors and rank occupancy",
+               "boundary": "SI rankings use published treated energies; entropy corrections are not independently rederived from frequencies. Raw logs are not distributed; full log-to-record extraction is outside released-data verification."}
     (output / "summary.json").write_text(json.dumps(summary, indent=2) + "\n")
     if summary["failed_checks"]:
         raise ValueError("Independent arithmetic checks failed; inspect the audit CSV")
