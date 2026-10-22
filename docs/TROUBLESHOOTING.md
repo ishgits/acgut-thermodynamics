@@ -15,3 +15,7 @@
 **A comparison fails:** `reproduce` verifies this study's published results against the bundled records. If a check fails, something changed — inspect the run output and the records before anything else.
 
 **Plot/font differences:** numerical table/point comparisons are authoritative. Font rendering can vary by platform. The Figure 1 canvas is 17.8 × 13.2 cm at 1200 dpi; PDF/SVG are vector exports. Use `MPLBACKEND=Agg` in unattended environments. `--dpi 200` is a quick preview; it changes only PNG resolution.
+
+**Comparison failure:** `reproduction_checks.csv` summarizes every independent comparison. `reproduction_mismatches.csv` records issue type, scientific keys, column, expected/actual values, difference and tolerance. `run_metadata.json` and `VALIDATION_REPORT.md` are finalized before a nonzero exit. Inspect the mismatch rather than replacing frozen benchmarks. Missing/extra keys, duplicate keys, missing columns, nonfinite fields and value differences all fail.
+
+**Later workflow failure:** completed artifacts remain; a partial report identifies the failed stage and exception. Preflight failures can occur before an output directory exists. Use a fresh output path for a retry. Figure wrappers, unlike main CLI commands, may overwrite same-named artwork.

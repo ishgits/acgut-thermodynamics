@@ -1,7 +1,7 @@
-"""Re-render the decomposition figure exactly from a reproduction's tables.
+"""Re-render Figure S1 exactly from a reproduction's tables.
 
-The net reaction split into nucleoside formation and phosphorylation, 21
-families each, ranked relative to adenine.
+Three reaction steps, 21 families each, relative to adenine and ordered by
+the shared Figure 1A net-formation ranking.
 
 Usage:
     python figure_scripts/decomposition.py --tables outputs/my_review/tables --out my_figures/

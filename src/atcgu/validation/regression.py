@@ -11,35 +11,70 @@ KCAL_TOLERANCE = 1e-6
 
 def compare_table(actual: pd.DataFrame, published: Path, keys: list[str], columns: list[str], tolerance: float = HARTREE_TOLERANCE,
                   rows: Callable[[pd.DataFrame], pd.Series] | None = None, label: str = "") -> dict:
-    """Outer-join on ``keys`` and compare ``columns``; ``rows`` optionally restricts both sides."""
-    expected = pd.read_csv(published, float_precision="round_trip", dtype={key: str for key in keys})
+    """Compare independently and retain row-level diagnostics for ordinary failures."""
+    import json
     check_id = f"{published.parent.name}/{published.name}" + (f" [{label}]" if label else "")
-    if rows is not None:
-        actual, expected = actual.loc[rows(actual)], expected.loc[rows(expected)]
-    if actual.duplicated(keys).any() or expected.duplicated(keys).any():
-        raise ValueError(f"Nonunique comparison keys: {check_id}")
-    left, right = actual[keys + columns].copy(), expected[keys + columns].copy()
-    for key in keys:
-        left[key], right[key] = left[key].astype(str), right[key].astype(str)
-    merged = left.merge(right, on=keys, how="outer", suffixes=("_actual", "_expected"), indicator=True, validate="one_to_one")
-    if not merged._merge.eq("both").all():
-        raise ValueError(f"Missing/extra benchmark rows in {check_id}")
-    max_difference = 0.0
-    for column in columns:
-        a, b = merged[column + "_actual"], merged[column + "_expected"]
-        if pd.api.types.is_bool_dtype(a) or pd.api.types.is_bool_dtype(b):
-            if not a.astype(str).str.lower().eq(b.astype(str).str.lower()).all():
-                raise ValueError(f"Benchmark mismatch {check_id}:{column}")
-        elif pd.api.types.is_numeric_dtype(a) and pd.api.types.is_numeric_dtype(b):
-            if not np.isfinite(a).all() or not np.isfinite(b).all():
-                raise ValueError(f"Nonfinite benchmark field {check_id}:{column}")
-            error = float((a - b).abs().max()) if len(a) else 0.0
-            max_difference = max(max_difference, error)
-            if error > tolerance:
-                raise ValueError(f"Benchmark mismatch {check_id}:{column}: {error}")
-        elif not a.fillna("").astype(str).eq(b.fillna("").astype(str)).all():
-            raise ValueError(f"Benchmark mismatch {check_id}:{column}")
-    return {"check_id": check_id, "passed": True, "rows": len(merged), "maximum_numeric_difference": max_difference, "tolerance": tolerance}
+    issues = []
+    maximum = 0.0
+    count = 0
+
+    def issue(kind, row=None, column="", expected=None, actual=None, difference=None):
+        scientific_keys = {key: str(row[key]) for key in keys} if row is not None else {}
+        issues.append(dict(check_id=check_id, issue_type=kind, scientific_keys=json.dumps(scientific_keys, sort_keys=True),
+                           column=column, expected_value=expected, actual_value=actual,
+                           absolute_difference=difference, tolerance=tolerance))
+
+    try:
+        expected = pd.read_csv(published, float_precision="round_trip", dtype={key: str for key in keys})
+        for side, frame in [("actual", actual), ("expected", expected)]:
+            for column in keys + columns:
+                if column not in frame:
+                    issue("missing_column", column=column, actual=side)
+        if not issues:
+            if rows is not None:
+                actual, expected = actual.loc[rows(actual)], expected.loc[rows(expected)]
+            left, right = actual[keys + columns].copy(), expected[keys + columns].copy()
+            for frame in (left, right):
+                for key in keys:
+                    frame[key] = frame[key].astype(str)
+            for side, frame in [("actual", left), ("expected", right)]:
+                for _, row in frame.loc[frame.duplicated(keys, keep=False)].iterrows():
+                    issue("duplicate_key", row, actual=side)
+            if not issues:
+                merged = left.merge(right, on=keys, how="outer", suffixes=("_actual", "_expected"), indicator=True, validate="one_to_one")
+                count = len(merged)
+                for _, row in merged.iterrows():
+                    if row["_merge"] != "both":
+                        issue("extra_key" if row["_merge"] == "left_only" else "missing_key", row)
+                both = merged.loc[merged._merge.eq("both")]
+                for column in columns:
+                    numeric = (pd.api.types.is_numeric_dtype(expected[column]) and not pd.api.types.is_bool_dtype(expected[column])
+                               and (expected[column].notna().any() or pd.api.types.is_numeric_dtype(actual[column])))
+                    for _, row in both.iterrows():
+                        a, b = row[column + "_actual"], row[column + "_expected"]
+                        if numeric:
+                            try:
+                                av, bv = float(a), float(b)
+                            except (ValueError, TypeError):
+                                issue("nonnumeric", row, column, b, a)
+                                continue
+                            if not np.isfinite(av) or not np.isfinite(bv):
+                                issue("nonfinite", row, column, b, a)
+                                continue
+                            difference = abs(av - bv)
+                            maximum = max(maximum, difference)
+                            if difference > (0.0 if pd.api.types.is_integer_dtype(expected[column]) else tolerance):
+                                issue("value_mismatch", row, column, b, a, difference)
+                        else:
+                            normalize = lambda v: "" if pd.isna(v) else str(v).lower() if isinstance(v, (bool, np.bool_)) else str(v)
+                            if normalize(a) != normalize(b):
+                                issue("value_mismatch", row, column, b, a)
+    except (OSError, ValueError, KeyError, pd.errors.ParserError) as exc:
+        issue("table_error", actual=f"{type(exc).__name__}: {exc}")
+    return {"check_id": check_id, "passed": not issues, "rows": count,
+            "maximum_numeric_difference": maximum, "tolerance": tolerance,
+            "status": "passed" if not issues else "failed", "reason": "; ".join(sorted({i["issue_type"] for i in issues})),
+            "mismatches": issues}
 
 
 def _not_failed(frame: pd.DataFrame) -> pd.Series:
@@ -47,7 +82,7 @@ def _not_failed(frame: pd.DataFrame) -> pd.Series:
 
 
 def compare_run(root: Path, outputs: dict[str, pd.DataFrame], plotted: Path | None = None,
-                si_plotted: Path | None = None) -> pd.DataFrame:
+                si_plotted: Path | None = None, s1_plotted: Path | None = None) -> pd.DataFrame:
     """Every table comparison runs with or without figures; figures add plotted-point checks."""
     continuum = root / "data/published/continuum"
     micro = root / "data/published/figure1"
@@ -110,4 +145,11 @@ def compare_run(root: Path, outputs: dict[str, pd.DataFrame], plotted: Path | No
         checks.append(compare_table(pd.read_csv(si_plotted), root / "data/published/supplement/si_microsolvation_plotted_data.csv",
                                     ["panel", "family", "treatment", "placement", "series"],
                                     ["selected_for_family", "value"], KCAL_TOLERANCE))
-    return pd.DataFrame(checks)
+    if s1_plotted:
+        checks.append(compare_table(pd.read_csv(s1_plotted), root / "data/published/supplement/figure_s1_plotted_data.csv",
+                                    ["panel", "analysis_id", "reaction_id", "reaction_family_id"],
+                                    ["display_order", "canonical", "value_kcal_mol"], KCAL_TOLERANCE))
+    mismatches = [issue for check in checks for issue in check.pop("mismatches")]
+    result = pd.DataFrame(checks)
+    result.attrs["mismatches"] = pd.DataFrame(mismatches, columns=["check_id", "issue_type", "scientific_keys", "column", "expected_value", "actual_value", "absolute_difference", "tolerance"])
+    return result
