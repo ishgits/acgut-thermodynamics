@@ -16,7 +16,7 @@ acgut reproduce --out outputs/first_run
 
 ## 2. Check the run
 
-Open `outputs/first_run/VALIDATION_REPORT.md`. It should say **28 of 28 published-result comparisons passed** — every recomputed table matched against `data/published/`. That report is the verification; if a check fails, see [Troubleshooting](TROUBLESHOOTING.md). Use a fresh directory under `outputs/` for each run.
+Open `outputs/first_run/VALIDATION_REPORT.md`. It should say **27 of 27 published-result comparisons passed** — every recomputed table matched against `data/published/`. That report is the verification; if a check fails, see [Troubleshooting](TROUBLESHOOTING.md). Use a fresh directory under `outputs/` for each run.
 
 For an independent second opinion: `acgut audit --out outputs/audit_01` re-derives the selections, energies, ranks, and plotted points using only the Python standard library (no project code). `acgut validate --out outputs/records_01` checks the calculation records, source structures, and sampling checksums.
 
