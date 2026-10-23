@@ -127,7 +127,6 @@ def render_figure1(tables: Path, output: Path, dpi: int | None, config: dict) ->
             axA.scatter(r.relative_g_kcal_mol, yi, marker="D", s=16, color=CANON, edgecolor="white", lw=0.4, zorder=3)
         else:
             axA.scatter(r.relative_g_kcal_mol, yi, marker="o", s=14, facecolor="white", edgecolor=NONCAN, lw=0.9, zorder=3)
-        axA.text(r.relative_g_kcal_mol + 0.45, yi, f"{r.relative_g_kcal_mol:.2f}", va="center", fontsize=6, color=SOFT)
     axA.set_yticks(y, [names[f] for f in a.reaction_family_id]); style_labels(axA, a.reaction_family_id)
     axA.set_ylim(len(a) - 0.5, -0.6); axA.set_xlim(-0.8, 16.8); axA.set_xticks(range(0, 17, 4))
     refline(axA); axA.set_xlabel(XL)
@@ -175,8 +174,8 @@ def render_figure1(tables: Path, output: Path, dpi: int | None, config: dict) ->
                     linewidths=0.9, zorder=7)
     axC.set_yticks(yc, [names[f] for f in c_fam]); style_labels(axC, c_fam)
     axC.set_ylim(len(c) - 0.5, -0.8); axC.set_xlim(-0.6, 8.2); axC.set_xticks(range(0, 9, 2))
-    refline(axC); axC.set_xlabel(r"Relative Nucleotide $\Delta G$ vs PCM adenine (kcal mol$^{-1}$)", fontsize=FS-0.5)
-    axC.set_title("Nucleotide (product) local water sensitivity", loc="left", fontweight="bold", pad=47)
+    refline(axC); axC.set_xlabel(r"Relative formation value vs PCM adenine (kcal mol$^{-1}$)", fontsize=FS-0.5)
+    axC.set_title("Product-side water sensitivity", loc="left", fontweight="bold", pad=47)
     axC.legend(handles=[Line2D([], [], marker="D", ls="", mfc="white", mec="#555555", mew=0.9, ms=4.3, label="PCM only (no explicit water)"),
                         Line2D([], [], marker="o", ls="", color="#555555", mec="white", ms=6.3, label="+ 2 H$_2$O: lowest sampled G"),
                         Line2D([], [], marker="o", ls="", mfc="white", mec="#555555", mew=0.9, ms=4.8,

@@ -49,6 +49,7 @@ def main(argv=None) -> int:
             fresh(out)
             config = yaml.safe_load((root / "config/figures.yaml").read_text())
             dpi = args.dpi or int(config["figure1"]["png_dpi"])
+            si_dpi = args.dpi or int(config["si_microsolvation"]["png_dpi"])
             tables = args.tables.resolve()
             render_figure1(tables, out, dpi, config)
             # Only a missing SI input is a supported partial run. If the SI
@@ -57,7 +58,7 @@ def main(argv=None) -> int:
             si_input = tables / "si" / "05_fixed_reference_placement_scores.csv"
             si_missing = not si_input.is_file()
             if not si_missing:
-                render_si_microsolvation(tables, out, dpi, config)
+                render_si_microsolvation(tables, out, si_dpi, config)
             render_decomposition(tables, out, dpi, config)
             if si_missing:
                 missing = "tables/si/" if not (tables / "si").is_dir() else "tables/si/05_fixed_reference_placement_scores.csv"

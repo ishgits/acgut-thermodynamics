@@ -6,15 +6,16 @@ six-family order is preserved under every low-frequency treatment.
 """
 from pathlib import Path
 
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import numpy as np
 import pandas as pd
 
-from .figure1 import B3LYP_C, CM, WB97_C, refline, save_figure, style_labels
+from .figure1 import B3LYP_C, CM, WB97_C, save_figure
 
 QRRHO_C = "#CC79A7"
-CANON = "#245A35"; NONCAN = "#777777"
+CANON = "#215C38"; NONCAN = "#727272"
 CANONICAL = {"adenine", "cytosine", "guanine"}
 TREATMENTS = [
     ("harmonic", "Harmonic", "H", "#4D4D4D"),
@@ -33,7 +34,7 @@ NAMES = {"tap": "TAP (C5-linked)"}
 
 
 def _display_order(config: dict) -> list[str]:
-    order = list(config["si_microsolvation"]["display_family_order"])
+    order = list(config["si_microsolvation"]["plot_family_order"])
     if len(order) != 6 or len(set(order)) != 6:
         raise ValueError("SI display order must contain six unique families")
     return order
@@ -60,41 +61,45 @@ def render_si_microsolvation(tables: Path, output: Path, dpi: int, config: dict)
     for treatment, _title in PANEL_TITLES.items():
         minima = (placements[placements.treatment.eq(treatment)]
                   .groupby("family").fixed_reference_score_kcal_mol.min())
-        if minima.sort_values().index.tolist() != order:
+        if minima.sort_values().index.tolist() != list(figure["display_family_order"]):
             raise ValueError(f"Selected order changed under {treatment}")
 
+    mpl.rcParams.update({"font.family": "DejaVu Sans", "font.size": 6.5,
+                         "pdf.fonttype": 42, "ps.fonttype": 42,
+                         "axes.spines.top": False, "axes.spines.right": False,
+                         "axes.linewidth": 0.8})
     output.mkdir(parents=True, exist_ok=True)
     fig = plt.figure(figsize=(width * CM, height * CM))
     fig.legend(handles=[
-        Line2D([], [], marker="o", ls="", mfc=NONCAN, mec=NONCAN, ms=4.2, label="splitA"),
-        Line2D([], [], marker="s", ls="", mfc=NONCAN, mec=NONCAN, ms=4.0, label="splitB"),
-    ], loc="upper center", bbox_to_anchor=(0.5, 0.985), ncol=2,
-        frameon=False, handletextpad=0.3, columnspacing=0.9, fontsize=6.5)
+        Line2D([], [], marker="o", ls="", mfc=NONCAN, mec=NONCAN, mew=0.7, ms=4.0, label="Placement A"),
+        Line2D([], [], marker="s", ls="", mfc=NONCAN, mec=NONCAN, mew=0.7, ms=4.0, label="Placement B"),
+    ], loc="upper center", bbox_to_anchor=(0.53, 0.979), ncol=2,
+        frameon=False, handletextpad=0.45, columnspacing=1.0, borderaxespad=0, fontsize=6.5)
 
     rows = []
     bottoms = [0.755, 0.552, 0.349, 0.146]
     axes = []
     for (treatment, title), bottom in zip(PANEL_TITLES.items(), bottoms):
-        ax = fig.add_axes([0.30, bottom, 0.57, 0.163], sharex=axes[0] if axes else None)
+        ax = fig.add_axes((0.30, bottom, 0.57, 0.163))
         axes.append(ax)
         block = placements[placements.treatment.eq(treatment)].set_index(["family", "placement"])
         for yi, family in enumerate(order):
             a = float(block.loc[(family, "splitA"), "fixed_reference_score_kcal_mol"])
             b = float(block.loc[(family, "splitB"), "fixed_reference_score_kcal_mol"])
             color = CANON if family in CANONICAL else NONCAN
-            ax.plot([a, b], [yi, yi], color=color, lw=0.85, alpha=0.65, zorder=2)
+            ax.plot((a, b), (yi, yi), color=color, alpha=0.64, linewidth=1.05, solid_capstyle="round", zorder=2)
             if treatment == "grimme_qrrho_100" and family == "tap":
                 # Both x coordinates are retained. Their separation is below
                 # the printed marker width, so use a nested composite glyph.
-                ax.scatter(a, yi, marker="o", s=52, color=color,
-                           edgecolor="white", linewidth=0.35, zorder=4)
-                ax.scatter(b, yi, marker="s", s=19, facecolor="white",
-                           edgecolor=color, linewidth=0.8, zorder=5)
+                ax.scatter(a, yi, marker="o", s=33, facecolors=color,
+                           edgecolors=color, linewidths=0.6, zorder=4)
+                ax.scatter(b, yi, marker="s", s=12, facecolors="white",
+                           edgecolors=color, linewidths=0.6, zorder=5)
             else:
-                ax.scatter(a, yi, marker="o", s=25, color=color,
-                           edgecolor="white", linewidth=0.35, zorder=4)
-                ax.scatter(b, yi, marker="s", s=25, color=color,
-                           edgecolor="white", linewidth=0.35, zorder=4)
+                ax.scatter(a, yi, marker="o", s=16, facecolors=color,
+                           edgecolors=color, linewidths=0.6, zorder=4)
+                ax.scatter(b, yi, marker="s", s=16, facecolors=color,
+                           edgecolors=color, linewidths=0.6, zorder=5)
             for placement, value in (("splitA", a), ("splitB", b)):
                 rows.append({"panel": treatment, "family": family, "treatment": treatment,
                              "placement": placement, "series": "fixed_reference_placement_score",
@@ -102,22 +107,27 @@ def render_si_microsolvation(tables: Path, output: Path, dpi: int, config: dict)
                                  block.loc[(family, placement), "selected_for_family"]),
                              "value": value})
         ax.set_yticks(range(6), [NAMES.get(f, f.capitalize()) for f in order])
-        style_labels(ax, order)
-        ax.tick_params(axis="y", labelsize=6.5)
-        ax.set_ylim(5.45, -0.45)
+        for tick, family in zip(ax.get_yticklabels(), order):
+            tick.set_color(CANON if family in CANONICAL else NONCAN)
+            tick.set_fontweight("bold" if family in CANONICAL else "normal")
+        ax.set_ylim(len(order) - 0.55, -0.45)
         ax.set_xlim(*x_limits)
-        ax.set_xticks(np.arange(0, 13, 3))
-        refline(ax)
-        ax.set_title(title, loc="left", fontweight="bold", fontsize=7.5, pad=3, color="#1a1a1a")
-        if treatment != "grimme_qrrho_100":
-            ax.tick_params(labelbottom=False)
-        else:
-            ax.tick_params(axis="x", labelsize=6.5)
+        ax.set_xticks((0, 3, 6, 9, 12))
+        ax.set_axisbelow(True)
+        ax.grid(axis="x", color="#E0E0E0", linewidth=0.6)
+        ax.axvline(0, color="#9E9E9E", linestyle=(0, (3, 2)), linewidth=0.8, zorder=1)
+        ax.tick_params(axis="y", length=0, pad=4)
+        ax.tick_params(axis="x", length=3, width=0.8, labelsize=6.5,
+                       labelbottom=treatment == "grimme_qrrho_100")
+        ax.set_title(title, loc="left", fontweight="bold", fontsize=7.5, pad=1.5)
 
-    fig.text(0.585, 0.083,
-             "Two-water score relative to harmonic\n"
-             r"continuum adenine (kcal mol$^{-1}$)",
-             ha="center", va="center", fontsize=6.6)
+    axes[-1].set_xticklabels(("0\nPCM adenine", "3", "6", "9", "12"))
+    axes[-1].get_xticklabels()[0].set_fontweight("bold")
+    axes[-1].set_xlabel(
+        "Relative Nucleotide " + r"$\Delta G$" + "\n"
+        + r"with two waters (kcal mol$^{-1}$)",
+        fontsize=7.0, labelpad=8,
+    )
     if not np.allclose(fig.get_size_inches() * 2.54, [width, height]):
         raise ValueError("Exported SI figure size differs from configured dimensions")
     save_figure(fig, output / "si_microsolvation_sensitivity", dpi)

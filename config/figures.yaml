@@ -10,7 +10,8 @@ figure1:
   short_names:
     5_amino_4_imidazolecarboxamide: AICA
     tap_c5link: TAP (C5-linked)
-    barbituric_acid_clink: Barbituric-C
+    barbituric_acid_clink: BA (C5-linked)
+    barbituric_acid_nlink: BA (N-linked)
 panel_c:
   temperature_k: 298.0
   gas_constant_kcal_mol_k: 0.0019872041
@@ -23,6 +24,8 @@ si_microsolvation:
   height_cm: 17.8
   x_limits_kcal_mol: [-0.6, 13.4]
   display_family_order: [cytosine, adenine, imidazole, melamine, tap, guanine]
+  plot_family_order: [adenine, cytosine, imidazole, melamine, tap, guanine]
+  png_dpi: 900
 
 figure_s1:
   width_cm: 17.8
