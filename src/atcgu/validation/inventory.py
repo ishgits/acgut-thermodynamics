@@ -24,7 +24,14 @@ def validate(root: Path, output: Path) -> Path:
     for row in csv.DictReader((root / "config/sampling.csv").open()):
         for field in ["seed", "ensemble"]:
             if row[field + "_path"]:
-                checks.append({"item": row[field + "_path"], "passed": digest(within(root, row[field + "_path"])) == row[field + "_sha256"], "status": "sampling_integrity", "details": ""})
+                try:
+                    passed = digest(within(root, row[field + "_path"])) == row[field + "_sha256"]
+                    details = "" if passed else "SHA-256 differs"
+                except (OSError, ValueError) as exc:
+                    passed, details = False, str(exc)
+                checks.append({"item": row[field + "_path"], "passed": passed, "status": "sampling_integrity", "details": details})
+    from .sampling import validate_sampling
+    checks.extend(validate_sampling(root, output))
     # Re-validate method, state, identity and cohort membership in the continuum workflow;
     # only records that failed at the source may be unusable.
     from ..analysis.workflow import load_inventory
