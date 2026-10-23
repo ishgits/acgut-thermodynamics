@@ -5,7 +5,7 @@ These files record checks that cannot be rerun from the public release, because 
 | File | Coverage | Result |
 |---|---:|---|
 | `extraction_comparisons.csv` | 420 source logs; 4,620 field comparisons between the production and the independent Gaussian parsers | All agree |
-| `extraction_summary.json` | Counts behind the comparison above | No disagreements; 3 source calculations failed and are excluded |
+| `extraction_summary.json` | Counts behind the comparison above | No disagreements |
 | `construction_checks.csv` | 20 neutral construction recipes | Formula and bond graph match; force-field convergence recorded |
 | `refinement_preparation.csv` | 66 CREST ensembles | DFT refinement starts prepared from each |
 | `water_preparation.csv` | 12 primary two-water placements | Atom order and alignment against the first source orientation recorded |

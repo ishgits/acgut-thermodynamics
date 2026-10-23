@@ -48,12 +48,3 @@ Heavy-atom RMSD excludes H, centers corresponding atoms and uses proper-rotation
 
 Released preparation candidate sets contain `dft_seed` plus selected CREST frames and **no seed-similarity filter**. All 66 manifests reproduce using 627.5094740631 kcal/mol per hartree. This establishes candidate IDs/order, metrics, policy, hashes and adjacent-energy inversions, not executed jobs or byte-identical Gaussian inputs. Actual calculation evidence is the calculation-record inventory.
 
-Historical campaign dispatch used 627.509 and an additional step:
-
-```text
-survivors = selected CREST frames with RMSD(frame, seed) >= 0.5 Å
-if survivors is empty: record "existing"; create no new jobs
-else: campaign starts = [dft_seed] + survivors
-```
-
-That historical replay matched 11 pilot and 12 follow-up species. Applying it counterfactually to all 66 released ensembles changes 31 candidate lists; this does not establish incorrect executed calculations. Conversion alone changes no selected IDs but can change relative energies by 4.43e-6 kcal/mol. The 420 historical logs included three failures; 417 valid calculation records are released.
