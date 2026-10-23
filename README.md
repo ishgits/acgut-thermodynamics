@@ -17,9 +17,9 @@ data/calculations/           src/atcgu/                 data/published/
 data/source/ and calculation_setup/ document starting structures and inputs.
 ```
 
-**evidence**: all the records
-**derivation**: `src/atcgu/` code that turns records into results 
-**claims** the published tables, `acgut reproduce` recomputes the tables and checks them against the published values.
+- **evidence**: all the records
+- **derivation**: `src/atcgu/` code that turns records into results 
+- **claims** the published tables, `acgut reproduce` recomputes the tables and checks them against the published values.
 
 The notebook is a guided review of selected steps and results.
 
