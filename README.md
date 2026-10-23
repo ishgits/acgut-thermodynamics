@@ -1,4 +1,4 @@
-# Record and Workflow for Thermodynamics of nucleotide formation
+# Data and Workflow for Thermodynamics of nucleotide formation
 
 The manuscript and preprint are not public yet; a link will be added here when available.
 
