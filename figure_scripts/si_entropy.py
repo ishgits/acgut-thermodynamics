@@ -22,7 +22,7 @@ def main() -> None:
     p.add_argument("--dpi", type=int, help="PNG resolution; default figures.yaml png_dpi")
     args = p.parse_args()
     config = yaml.safe_load((ROOT / "config/figures.yaml").read_text())
-    dpi = args.dpi or int(config["figure1"]["png_dpi"])
+    dpi = args.dpi or int(config["si_microsolvation"]["png_dpi"])
     args.out.mkdir(parents=True, exist_ok=True)
     tables = args.tables.resolve()
     if not (tables / "si").is_dir():

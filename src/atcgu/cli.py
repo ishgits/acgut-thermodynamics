@@ -1,6 +1,8 @@
 """Public commands; paths are resolved from a checkout, never the author's workspace."""
 from pathlib import Path
 import argparse
+import csv
+import json
 
 from .paths import check_output, fresh
 
@@ -34,6 +36,11 @@ def main(argv=None) -> int:
         if args.command == "reproduce":
             from .runner import run
             run(root, out, figures=not args.no_figures, dpi=args.dpi)
+            with (out / "reproduction_checks.csv").open(newline="") as h:
+                rows = list(csv.DictReader(h))
+            passed = sum(str(row["passed"]).lower() == "true" for row in rows)
+            completion = (f"{passed}/{len(rows)} published-result comparisons passed.\n"
+                          f"Report: {out / 'VALIDATION_REPORT.md'}")
         elif args.command == "plot":
             import yaml
             from .plotting.figure1 import render_figure1
@@ -42,19 +49,44 @@ def main(argv=None) -> int:
             fresh(out)
             config = yaml.safe_load((root / "config/figures.yaml").read_text())
             dpi = args.dpi or int(config["figure1"]["png_dpi"])
-            render_figure1(args.tables.resolve(), out, dpi, config)
-            if (args.tables / "si").is_dir():
-                render_si_microsolvation(args.tables.resolve(), out, dpi, config)
-            render_decomposition(args.tables.resolve(), out, dpi, config)
+            si_dpi = args.dpi or int(config["si_microsolvation"]["png_dpi"])
+            tables = args.tables.resolve()
+            render_figure1(tables, out, dpi, config)
+            # Only a missing SI input is a supported partial run. If the SI
+            # tables are present, any validation or rendering error from the
+            # SI renderer propagates as a failure instead of a skip.
+            si_input = tables / "si" / "05_fixed_reference_placement_scores.csv"
+            si_missing = not si_input.is_file()
+            if not si_missing:
+                render_si_microsolvation(tables, out, si_dpi, config)
+            render_decomposition(tables, out, dpi, config)
+            if si_missing:
+                missing = "tables/si/" if not (tables / "si").is_dir() else "tables/si/05_fixed_reference_placement_scores.csv"
+                completion = ("Partial completion: generated Figure 1 and Figure S1.\n"
+                              f"Skipped SI entropy figure: missing {missing}.\n"
+                              f"Output: {out}")
+            else:
+                completion = (f"Generated Figure 1, SI entropy figure and Figure S1.\n"
+                              f"Output: {out}")
         elif args.command == "validate":
             from .validation.inventory import validate
             validate(root, out)
+            summary = json.loads((out / "summary.json").read_text())
+            total = int(summary["checks"]); passed = total - int(summary["failed_checks"])
+            completion = (f"{passed}/{total} checks passed.\n"
+                          f"Summary: {out / 'summary.json'}\n"
+                          f"Detailed checks: {out / 'record_checks.csv'}")
         elif args.command == "audit":
             from .validation.arithmetic import audit
             audit(root, out)
+            summary = json.loads((out / "summary.json").read_text())
+            total = int(summary["checks"]); passed = total - int(summary["failed_checks"])
+            completion = (f"{passed}/{total} checks passed.\n"
+                          f"Summary: {out / 'summary.json'}\n"
+                          f"Detailed checks: {out / 'independent_arithmetic_checks.csv'}")
     except (ValueError, RuntimeError, FileExistsError, FileNotFoundError, KeyError) as exc:
         p.exit(1, f"Study workflow failed: {exc}\n")
-    print(f"Completed {args.command}: {out}")
+    print(completion)
     return 0
 
 

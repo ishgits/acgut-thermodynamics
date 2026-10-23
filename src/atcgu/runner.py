@@ -29,6 +29,7 @@ def run(root: Path, output: Path, *, figures: bool = True, dpi: int | None = Non
     figure_config = yaml.safe_load((root / "config/figures.yaml").read_text())
     study = json.loads((root / "config/study.json").read_text())
     check_study_conventions(study, figure_config)
+    si_dpi = int(figure_config["si_microsolvation"]["png_dpi"]) if dpi is None else dpi
     dpi = int(figure_config["figure1"]["png_dpi"]) if dpi is None else dpi
     fresh(output)
     try:
@@ -51,7 +52,7 @@ def run(root: Path, output: Path, *, figures: bool = True, dpi: int | None = Non
             from .plotting.si_microsolvation import render_si_microsolvation
             from .plotting.decomposition import render_decomposition
             plotted = render_figure1(tables, output / "figures", dpi, figure_config)
-            si_plotted = render_si_microsolvation(tables, output / "figures", dpi, figure_config)
+            si_plotted = render_si_microsolvation(tables, output / "figures", si_dpi, figure_config)
             render_decomposition(tables, output / "figures", dpi, figure_config)
             s1_plotted = output / "figures/figure_s1_plotted_data.csv"
         stage = "comparisons"
@@ -72,6 +73,7 @@ def run(root: Path, output: Path, *, figures: bool = True, dpi: int | None = Non
                 packages[name] = None
         metadata = {"started_utc": started_utc, "finished_utc": datetime.now(timezone.utc).isoformat(), "python": platform.python_version(),
                     "packages": packages, "input_hashes": hashes, "figure_dpi": dpi if figures else None,
+                    "si_figure_dpi": si_dpi if figures else None,
                     "source_logs_required": False, "reference_family": study["reference_family"],
                     "scope": study["scope"], "comparisons": len(checks), "all_regressions_passed": passed,
                     "completion_status": "complete" if passed else "failed", "stage": "comparisons"}

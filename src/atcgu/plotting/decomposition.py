@@ -103,7 +103,6 @@ def render_decomposition(tables: Path, output: Path, dpi: int | None, config: di
             "axes.spines.top": False,
             "axes.spines.right": False,
             "pdf.fonttype": 42,
-            "svg.fonttype": "none",
         }
     )
 
