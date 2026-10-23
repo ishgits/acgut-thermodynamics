@@ -1,32 +1,16 @@
 # Data and Workflow for Thermodynamics of nucleotide formation
 
-The manuscript and preprint are not public yet; a link will be added here when available.
-
 [![DOI](https://zenodo.org/badge/1409472775.svg)](https://doi.org/10.5281/zenodo.23595070)
 
 **Purpose.** This repository is the reproducible companion to our manuscript that studies the energetics of nucleotide formation across 21 canonical and noncanonical base families. It lets readers trace reported values to the released calculation records and recompute them in minutes. 
 
 ## How to cite
 
-If you use the **data or results**, please cite the manuscript:
-
-> Madan, I. & Pearce, B. K. D. Energetics of nucleotide formation suggest a preference for adenine and cytosine, but not the canonical genetic alphabet as a whole. *Proceedings of the National Academy of Sciences* (2026, submitted).
+If you use the **data or results**, please cite the manuscript. The manuscript and preprint are not public yet; a link will be added here when available.
 
 If you use **only the code**, please cite the archived software release:
 
 > Madan, I. Thermodynamics of nucleotide formation (v1.0.0). Zenodo (2026). https://doi.org/10.5281/zenodo.23595071
-
-```bibtex
-@software{madan_2026_thermodynamics,
-  author  = {Madan, Ishaan},
-  title   = {Thermodynamics of nucleotide formation},
-  version = {1.0.0},
-  year    = {2026},
-  publisher = {Zenodo},
-  doi     = {10.5281/zenodo.23595071},
-  url     = {https://doi.org/10.5281/zenodo.23595071}
-}
-```
 
 ## How the repo is organized
 
