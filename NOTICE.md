@@ -6,8 +6,7 @@ Madan's **PubChem Gaussian Pipeline**, v2.1.0, DOI
 Upstream code and citation are available at
 [ishgits/pubchem-gaussian-pipeline](https://github.com/ishgits/pubchem-gaussian-pipeline).
 The study's explicit CID choices, neutral linkage builders, source atom indices,
-sampling inputs and calculation routes define the adaptations here. The study
-is not represented as having executed the upstream release unchanged.
+sampling inputs and calculation routes define the adaptations here.
 
 Frozen starting structures acquired from PubChem retain PubChem metadata and
 compound identifiers in their SDF files. `data/source/manifest.csv` identifies
