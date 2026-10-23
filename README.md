@@ -2,6 +2,8 @@
 
 The manuscript and preprint are not public yet; a link will be added here when available.
 
+[![DOI](https://zenodo.org/badge/1409472775.svg)](https://doi.org/10.5281/zenodo.23595070)
+
 **Purpose.** This repository is the reproducible companion to our manuscript that studies the energetics of nucleotide formation across 21 canonical and noncanonical base families. It lets readers trace reported values to the released calculation records and recompute them in minutes. 
 
 ## How the repo is organized
