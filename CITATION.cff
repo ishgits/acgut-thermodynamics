@@ -1,18 +1,26 @@
 cff-version: 1.2.0
-message: "If you use this code or data, please cite it as below."
+message: "If you use the data or results in this repository, please cite the manuscript (see preferred-citation). If you use only the code, please cite this archived software release."
 title: "Thermodynamics of nucleotide formation"
-abstract: "Reproducible companion to a study of nucleotide-formation free energies across 21 canonical and noncanonical base families: 417 calculation records, the analysis code that turns them into the published tables and figures, and a guided notebook. Companion manuscript: 'Energetics of nucleotide formation suggest a preference for adenine and cytosine, but not the canonical genetic alphabet as a whole' (PNAS, submitted)."
+abstract: "Reproducible companion to a study of nucleotide-formation free energies across 21 canonical and noncanonical base families: 417 calculation records, the analysis code that turns them into the published tables and figures, and a guided notebook."
 authors:
   - family-names: "Madan"
     given-names: "Ishaan"
     affiliation: "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University"
 version: "1.0.0"
+date-released: "2026-10-23"
 license: CC-BY-4.0
+doi: "10.5281/zenodo.23595071"
 repository-code: "https://github.com/ishgits/acgut-thermodynamics"
-keywords:
-  - prebiotic chemistry
-  - nucleotide formation
-  - computational chemistry
-  - thermodynamics
-  - origins of life
-  - reproducibility
+url: "https://doi.org/10.5281/zenodo.23595071"
+preferred-citation:
+  type: article
+  title: "Energetics of nucleotide formation suggest a preference for adenine and cytosine, but not the canonical genetic alphabet as a whole"
+  authors:
+    - family-names: "Madan"
+      given-names: "Ishaan"
+      affiliation: "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University"
+    - family-names: "Pearce"
+      given-names: "Ben K. D."
+      affiliation: "Department of Earth, Atmospheric, and Planetary Sciences, Purdue University"
+  journal: "Proceedings of the National Academy of Sciences"
+  year: 2026
