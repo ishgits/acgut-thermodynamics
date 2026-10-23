@@ -32,8 +32,7 @@ FS = 7
 mpl.rcParams.update({"font.family": "DejaVu Sans", "font.size": FS, "axes.linewidth": 0.6,
                      "xtick.major.width": 0.6, "ytick.major.width": 0.6, "xtick.major.size": 2.5,
                      "axes.spines.top": False, "axes.spines.right": False, "axes.titlesize": FS + 0.5,
-                     "legend.fontsize": FS - 0.5, "svg.fonttype": "none", "pdf.fonttype": 42,
-                     "svg.hashsalt": "atcgu-study"})
+                     "legend.fontsize": FS - 0.5, "pdf.fonttype": 42})
 # Undated vector exports so identical inputs give identical PDF bytes.
 SAVE_METADATA = {"png": None, "pdf": {"CreationDate": None}}
 
@@ -50,7 +49,7 @@ def refline(ax):
 XL = r"Relative reaction $\Delta G$ vs adenine (kcal mol$^{-1}$)"
 
 def save_figure(fig, stem: Path, dpi: int) -> None:
-    """Write PNG/PDF/SVG with undated, reproducible vector metadata."""
+    """Write PNG and PDF with undated, reproducible vector metadata."""
     for ext, metadata in SAVE_METADATA.items():
         fig.savefig(stem.with_name(f"{stem.name}.{ext}"), dpi=dpi if ext == "png" else None, metadata=metadata)
 

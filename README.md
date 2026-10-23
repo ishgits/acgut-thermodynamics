@@ -54,7 +54,7 @@ The notebook computes baseline reaction energies from the published table and us
 | `acgut reproduce --out <dir>` | Recompute every table, render Figure 1 + SI figures, compare against `data/published/` (28 checks) |
 | `acgut audit --out <dir>` | Independent re-derivation of selections, energies, ranks and plotted points using only the standard library |
 | `acgut validate --out <dir>` | Check the calculation records, source structures, and sampling checksums |
-| `acgut plot --tables <dir>/tables --out <dir>` | Re-render the figures from an existing reproduction |
+| `acgut plot --tables outputs/my_review/tables --out outputs/my_figures` | Re-render the figures from an existing reproduction; `outputs/my_figures` must be fresh |
 
 Each run needs a fresh output directory. Add `--no-figures` to `reproduce` to skip rendering.
 
